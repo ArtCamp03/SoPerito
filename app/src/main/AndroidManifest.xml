@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="br.arc_camp_tcc.soperito">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SoPerito"
+        tools:targetApi="31">
+        <activity
+            android:name=".view.usuario.ContaEmpregadorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.usuario.ContaPeritoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CurriculoPeritoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VagaEmpregadorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.empregador.AdicVagaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.empregador.CandidatosEmpregadorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.perito.AdicCurriculoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.perito.ContatoServicoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.empregador.EditPerfilEmpregadorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.empregador.PerfilEmpregadorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.usuario.MenuConfigActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.empregador.PeritosDisponiveisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.empregador.BuscaPeritoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.perito.ServicoDisponiveisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.perito.BuscaServicoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.perito.EditPerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.perito.PerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.empregador.MenuEmpregadorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.perito.MenuPeritoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.usuario.ForgotPasswordConfirmActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.usuario.ForgotPasswordCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.usuario.ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.usuario.ProfileChoiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.usuario.RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.usuario.IntroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.usuario.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.usuario.SplashActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.SoPerito.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

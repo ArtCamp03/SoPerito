@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "407684386352",
+    "project_id": "so-perito",
+    "storage_bucket": "so-perito.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:407684386352:android:be7b882ca1105ce07c27f5",
+        "android_client_info": {
+          "package_name": "br.arc_camp_tcc.soperito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "407684386352-7kc8rks86u5h7djcg1ielcdaomkohs23.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhUwTPozg_GZtHzNoT1uJYvryeM30qA28"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "407684386352-7kc8rks86u5h7djcg1ielcdaomkohs23.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

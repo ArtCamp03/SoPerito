@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/marrom"
+    tools:context=".view.perito.AdicCurriculoActivity">
+
+    <ImageView
+        android:id="@+id/img_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/black"
+        android:src="@drawable/img_slogan_logo"
+        android:padding="8dp"
+        />
+
+    <TextView
+        android:id="@+id/text_titel_serv_disp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Informaçoes para serviço desejado:"
+        android:textSize="22sp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/img_action_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_nome_vaga"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Serviço desejado:"
+        android:textSize="18sp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_titel_serv_disp"/>
+
+    <EditText
+        android:id="@+id/edit_nome_vaga"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/gold"
+        app:layout_constraintStart_toEndOf="@+id/text_nome_vaga"
+        app:layout_constraintTop_toBottomOf="@+id/text_titel_serv_disp"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_temp_xp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="tempo de experiencia:"
+        android:textSize="18sp"
+        android:layout_marginTop="26dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_nome_vaga"/>
+
+    <EditText
+        android:id="@+id/edit_temp_xp"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:textSize="18sp"
+        android:layout_marginTop="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/gold"
+        app:layout_constraintStart_toEndOf="@+id/text_temp_xp"
+        app:layout_constraintTop_toBottomOf="@+id/edit_nome_vaga" />
+
+    <TextView
+        android:id="@+id/text_descript_modo_servico"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Observaçao:"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_temp_xp"/>
+
+    <EditText
+        android:id="@+id/edit_obs"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:padding="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/gold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_descript_modo_servico"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_valor_min"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Valor minimo:"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_obs"/>
+
+    <EditText
+        android:id="@+id/edit_valor_min"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/gold"
+        app:layout_constraintStart_toEndOf="@+id/text_valor_min"
+        app:layout_constraintTop_toBottomOf="@+id/edit_obs" />
+
+    <Button
+        android:id="@+id/btn_cancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancelar"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/gold"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_salvar"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_salvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="salvar"
+        android:textAllCaps="true"
+        android:textColor="@color/gold"
+        android:backgroundTint="@color/black"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_cancelar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

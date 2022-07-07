@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/marrom"
+    tools:context=".view.empregador.EditPerfilEmpregadorActivity">
+
+    <ImageView
+        android:id="@+id/img_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="146dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/black"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_slogan"
+        android:layout_width="246dp"
+        android:layout_height="86dp"
+        android:layout_marginLeft="14dp"
+        android:src="@drawable/img_slogan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_user"
+        android:layout_width="152dp"
+        android:layout_height="162dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/ic_user_upload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_name_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:text="Artur Campos"
+        android:textAllCaps="true"
+        android:textColor="@color/gold"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_action_bar" />
+
+    <TextView
+        android:id="@+id/text_dados_contato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Dados para contato:"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_name_user" />
+
+    <TextView
+        android:id="@+id/text_nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:padding="4dp"
+        android:text="Nome:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_dados_contato" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/gold"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_nome"
+        app:layout_constraintTop_toBottomOf="@+id/text_dados_contato" />
+
+    <TextView
+        android:id="@+id/text_endereco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="12dp"
+        android:text="Endereço:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_nome" />
+
+    <EditText
+        android:id="@+id/edit_endereco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/gold"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_endereco"
+        app:layout_constraintTop_toBottomOf="@+id/edit_name" />
+
+    <TextView
+        android:id="@+id/text_telefone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="12dp"
+        android:padding="4dp"
+        android:text="Telefone:"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_endereco" />
+
+    <EditText
+        android:id="@+id/edit_telefone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/gold"
+        android:inputType="phone"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_telefone"
+        app:layout_constraintTop_toBottomOf="@+id/edit_endereco" />
+
+    <TextView
+        android:id="@+id/text_contratacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Requisitos para candidato"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_telefone" />
+
+    <TextView
+        android:id="@+id/text_xp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="12dp"
+        android:padding="4dp"
+        android:text="Tempo de experiencia:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/edit_xp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_contratacao" />
+
+    <EditText
+        android:id="@+id/edit_xp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/gold"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_xp"
+        app:layout_constraintTop_toBottomOf="@+id/text_contratacao" />
+
+    <TextView
+        android:id="@+id/text_status_empregador"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:padding="4dp"
+        android:text="Status Empregador:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/edit_status_empregador"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_xp" />
+
+    <EditText
+        android:id="@+id/edit_status_empregador"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/gold"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_status_empregador"
+        app:layout_constraintTop_toBottomOf="@+id/edit_xp" />
+
+    <TextView
+        android:id="@+id/text_disp_pagar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="12dp"
+        android:padding="4dp"
+        android:text="Disposto a pagar ate:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/edit_disp_pagar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_status_empregador" />
+
+    <EditText
+        android:id="@+id/edit_disp_pagar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/gold"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_disp_pagar"
+        app:layout_constraintTop_toBottomOf="@+id/edit_status_empregador" />
+
+    <Button
+        android:id="@+id/btn_cancelar"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/gold"
+        android:text="CANCELAR"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_salvar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_salvar"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/black"
+        android:text="SALVAR"
+        android:textColor="@color/gold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_cancelar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

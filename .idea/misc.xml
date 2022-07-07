@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.119" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable/ic_add_vaga.xml" value="0.119" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable/ic_busca.xml" value="0.119" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable/ic_busca_background.xml" value="0.119" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable/ic_candidat.xml" value="0.119" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable/ic_candidatos.xml" value="0.119" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable/ic_launcher_background.xml" value="0.119" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable/ic_search.xml" value="0.119" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable/ic_settings.xml" value="0.119" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable/ic_user_upload.xml" value="0.119" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable/side_nav_bar.xml" value="0.119" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.10119840213049268" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout-w936dp/activity_login.xml" value="0.11875" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_adic_curriculo.xml" value="0.25" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_adic_vaga.xml" value="0.2" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_busca_perito.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_busca_servico_perito.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_candidatos_empregador.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_conta_empregador.xml" value="0.12" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_conta_perito.xml" value="0.22" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_contato_servico.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_curriculo_perito.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_edit_perfil.xml" value="0.18" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_edit_perfil_empregador.xml" value="0.25" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_edit_perfil_perito.xml" value="0.25" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_empregador_model.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_forgot_password.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_forgot_password_code.xml" value="0.16" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_forgot_password_confirm.xml" value="0.25" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_intro.xml" value="0.18" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_loading_item.xml" value="0.14114583333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_login.xml" value="0.18" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_login2.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_menu_config.xml" value="0.18" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_menu_empregador.xml" value="0.22" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_menu_perito.xml" value="0.22" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_perfil.xml" value="0.25" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_perfil_empregador.xml" value="0.21" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_perito_model.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_peritos_disponiveis.xml" value="0.16" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_profile_choice.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_registration.xml" value="0.18" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_servico_disponiveis.xml" value="0.17" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_splash.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_vaga_empregador.xml" value="0.25" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/app_bar_main.xml" value="0.18" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/content_main.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/content_start.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/fragment_inicio.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/fragment_peritos.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/fragment_slideshow.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/loading_item.xml" value="0.15833333333333333" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/nav_header_main.xml" value="0.22" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/menu/main.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22" />
+      </ProjectState>
+    </option>
+  </component>
+</project>
