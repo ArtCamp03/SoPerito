@@ -7,7 +7,7 @@ import br.arc_camp_tcc.soperito.service.repository.UsuarioRepository
 
 class UsuarioViewModel(aplication: Application) : AndroidViewModel(aplication)  {
 
-    private val repository = UsuarioRepository.getInstance(aplication)
+    private val repository = UsuarioRepository(aplication.applicationContext)
 
     fun insert(usuario: UsuarioModel){
         repository.insert(usuario)

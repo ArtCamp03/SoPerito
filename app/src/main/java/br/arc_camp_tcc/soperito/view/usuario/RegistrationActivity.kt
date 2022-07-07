@@ -41,7 +41,13 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
             val senha = binding.editPassword.text.toString()
             val novaSenha = binding.editPasswordConfirm.text.toString()
 
-            val model = UsuarioModel(0,false,false,email,nome,cpf,telefone,senha, 0)
+            val model = UsuarioModel().apply {
+                this.email = email
+                this.nome = nome
+                this.cpf = cpf
+                this.telefone = telefone
+                this.senha = senha
+            }
             viewModel.insert(model)
 
             if(email != "" && nome != "" && nome != "" && cpf != "" && senha != ""){

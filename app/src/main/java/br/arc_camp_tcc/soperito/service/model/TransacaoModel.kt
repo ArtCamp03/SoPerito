@@ -1,15 +1,42 @@
 package br.arc_camp_tcc.soperito.service.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 // mapeamento de interface de banco
-class TransacaoModel(
-    val codTransc: Int,
-    val codPerito: Int,
-    val codEmp: Int,
-    val nomeEmp: String,
-    val nomePerito: String,
-    val statusEmp: Boolean,
-    val statusPerito: Boolean,
-    val numEmp: Int,
-    val numPerito: Int,
-)
+
+@Entity(tableName = "Transacao")
+class TransacaoModel{
+
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "codTransc")
+    var codTransc: Int = 0
+
+    @ColumnInfo(name = "codPerito")
+    var codPerito: Int = 0
+
+    @ColumnInfo(name = "codEmp")
+    var codEmp: Int = 0
+
+    @ColumnInfo(name = "nomeEmp")
+    var nomeEmp: String = ""
+
+    @ColumnInfo(name = "nomePerito")
+    var nomePerito: String = ""
+
+    @ColumnInfo(name = "statusEmp")
+    var statusEmp: Boolean = false
+
+    @ColumnInfo(name = "statusPerito")
+    var statusPerito: Boolean = false
+
+    @ColumnInfo(name = "numEmp")
+    var numEmp: Int = 0
+
+    @ColumnInfo(name = "numPerito")
+    var numPerito: Int = 0
+}
+
+
 
