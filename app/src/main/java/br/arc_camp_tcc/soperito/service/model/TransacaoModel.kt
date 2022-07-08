@@ -2,6 +2,7 @@ package br.arc_camp_tcc.soperito.service.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 // mapeamento de interface de banco
@@ -13,9 +14,11 @@ class TransacaoModel{
     @ColumnInfo(name = "codTransc")
     var codTransc: Int = 0
 
+    @ForeignKey("Perito","codPerito")
     @ColumnInfo(name = "codPerito")
     var codPerito: Int = 0
 
+    @ForeignKey("Empregador","codEmp")
     @ColumnInfo(name = "codEmp")
     var codEmp: Int = 0
 
