@@ -21,10 +21,12 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_start">StartActivity</string>
     <string name="valid_registre">Dados salvos com sucesso !!</string>
+    <string name="erro_salvamento">Erro ao salvar dados!</string>
     <string name="invalid_registre">Dado invalido</string>
     <string name="camp_blank">Proibido campo vazio</string>
     <string name="back_registre">Tente novamente</string>
     <string name="cadastro_no_complete">Cadastro nao concluido !!</string>
     <string name="erro_login">Usuario ou Senha invalido</string>
+    <string name="incaptivel_senha">campos senha e nova senha sao imcompativeis</string>
     <string name="confirm_user">Usuario confirmado</string>
 </resources>

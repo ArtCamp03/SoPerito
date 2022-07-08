@@ -13,8 +13,8 @@ import br.arc_camp_tcc.soperito.viewModel.UsuarioViewModel
 
 class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var binding : ActivityRegistrationBinding
-    private lateinit var viewModel : UsuarioViewModel
+    private lateinit var binding: ActivityRegistrationBinding
+    private lateinit var viewModel: UsuarioViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +33,7 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
 
-        if(v.id == R.id.button_confirm){
+        if (v.id == R.id.button_confirm) {
             val email = binding.editEmail.text.toString()
             val nome = binding.editName.text.toString()
             val cpf = binding.editCpf.text.toString()
@@ -41,24 +41,31 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
             val senha = binding.editPassword.text.toString()
             val novaSenha = binding.editPasswordConfirm.text.toString()
 
-            val model = UsuarioModel().apply {
-                this.email = email
-                this.nome = nome
-                this.cpf = cpf
-                this.telefone = telefone
-                this.senha = senha
-            }
-            viewModel.insert(model)
+            if (email != "" && nome != "" && nome != "" && cpf != "" && senha != "") {
+                if (senha.equals(novaSenha)) {
 
-            if(email != "" && nome != "" && nome != "" && cpf != "" && senha != ""){
-                Toast.makeText(this,R.string.valid_registre,Toast.LENGTH_LONG).show()
-                val registre = Intent(this, LoginActivity::class.java)
-                startActivity(registre)
-            }else{
-                Toast.makeText(this,R.string.camp_blank,Toast.LENGTH_LONG).show()
+                    val model = UsuarioModel()
+
+                    model.email = email
+                    model.nome = nome
+                    model.cpf = cpf
+                    model.telefone = telefone
+                    model.senha = senha
+
+                    viewModel.insert(model)
+
+                    Toast.makeText(this, R.string.valid_registre, Toast.LENGTH_LONG).show()
+                    val registre = Intent(this, LoginActivity::class.java)
+                    startActivity(registre)
+                } else {
+                    Toast.makeText(this, R.string.incaptivel_senha, Toast.LENGTH_LONG).show()
+                }
+            } else {
+                Toast.makeText(this, R.string.incaptivel_senha, Toast.LENGTH_LONG).show()
             }
-        }else if(v.id == R.id.button_cancel){
-            Toast.makeText(this,R.string.cadastro_no_complete,Toast.LENGTH_LONG).show()
+        }
+        if (v.id == R.id.button_cancel) {
+            Toast.makeText(this, R.string.cadastro_no_complete, Toast.LENGTH_LONG).show()
             val cancel = Intent(this, IntroActivity::class.java)
             startActivity(cancel)
         }
