@@ -4,7 +4,6 @@ package br.arc_camp_tcc.soperito.service.model
 class PeritoModel(
     val codigUsuario: Int,
     val codPerito: Int,
-    val userPerito: Boolean,
     var email: String,
     var nome: String,
     val cpf: String,
