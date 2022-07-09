@@ -5,15 +5,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityLoginBinding
+import br.arc_camp_tcc.soperito.service.model.Person.PersonLoginModel
 import br.arc_camp_tcc.soperito.service.model.VerifyLoginModel
+import br.arc_camp_tcc.soperito.viewModel.LoginViewModel
 import br.arc_camp_tcc.soperito.viewModel.UsuarioViewModel
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var mViewModel : UsuarioViewModel
+    private lateinit var mViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,52 +30,45 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         // instancia viewModel e atrela ao ciclo de vida
-        mViewModel = ViewModelProvider(this).get(UsuarioViewModel::class.java)
+        mViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         binding.buttonLogin.setOnClickListener(this)
         binding.textFogotPassword.setOnClickListener(this)
 
         //inicializa eventos
-        setLiteners()
         observe()
 
         supportActionBar?.hide()
     }
 
     override fun onClick(v: View) {
-        if(v.id == R.id.button_login){
-
-            val email = binding.editEmail.text.toString()
-            val senha = binding.editPassword.text.toString()
-
-            if(verifyLoggedUser(email,senha)){
-                Toast.makeText(this,R.string.confirm_user, Toast.LENGTH_SHORT).show()
-                val login = Intent(this, ProfileChoiceActivity::class.java)
-                startActivity(login)
-            }else{
-                Toast.makeText(this,R.string.erro_login, Toast.LENGTH_SHORT).show()
-            }
-        }else if(v.id == R.id.text_fogot_password){
+        if (v.id == R.id.button_login) {
+            //handleLogin()
+            val fogotPassword = Intent(this, ProfileChoiceActivity::class.java)
+            startActivity(fogotPassword)
+        } else if (v.id == R.id.text_fogot_password) {
             val fogotPassword = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(fogotPassword)
+        } else {
+            Toast.makeText(this, R.string.erro_login, Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun setLiteners(){
-        //
-    }
-
-    private fun observe(){
-        //
-    }
-
-    private fun verifyLoggedUser(email: String,senha: String): Boolean{
-        val verifyLog = VerifyLoginModel(email, senha)
-
-        if(mViewModel.getLogin(verifyLog.email,verifyLog.senha)) {
-            return  true
+    private fun observe() {
+        mViewModel.login.observe(this) {
+            if (it.status()) {
+                startActivity(Intent(applicationContext, ProfileChoiceActivity::class.java))
+                finish()
+            } else {
+                Toast.makeText(applicationContext, it.message(), Toast.LENGTH_SHORT).show()
+            }
         }
-        return false
+    }
+
+    private fun handleLogin() {
+        val email = binding.editEmail.text.toString()
+        val senha = binding.editPassword.text.toString()
+        (mViewModel.doLogin(email, senha))
     }
 
 }

@@ -2,20 +2,18 @@ package br.arc_camp_tcc.soperito.service.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 // mapeamento de interface de banco
 // utilizando anotations da biblioteca ROOM
 
-@Entity(tableName = "Empregador")
+@Entity(tableName = "empregador")
 class EmpregadorModel  {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "codEmp")
     var codEmp: Int = 0
 
-    @ForeignKey("Usuario","codigUsuario")
     @ColumnInfo(name = "codigUsuario")
     var codigUsuario: Int = 0
 

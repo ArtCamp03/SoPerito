@@ -3,15 +3,22 @@ package br.arc_camp_tcc.soperito.service.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
 // mapeamento de interface de banco
 
-@Entity(tableName = "Usuario")
+@Entity(tableName = "usuario")
 class UsuarioModel{
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "codigUsuario")
     var codigUsuario: Int = 0
+
+    @ColumnInfo(name = "codEmp")
+    var codEmp: Int = 0
+
+    @ColumnInfo(name = "codPerito")
+    var codPerito: Int = 0
 
     @ColumnInfo(name = "userPerito")
     var userPerito: Boolean = false

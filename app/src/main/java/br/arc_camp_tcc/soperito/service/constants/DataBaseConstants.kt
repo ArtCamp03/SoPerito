@@ -1,4 +1,4 @@
-package br.arc_camp_tcc.soperito.constants
+package br.arc_camp_tcc.soperito.service.constants
 
 // Constants deixa o codigo mais seguro caso alguma variavel seja escrita errada
 class DataBaseConstants private constructor() {
@@ -68,5 +68,11 @@ class DataBaseConstants private constructor() {
         }
 
     }
+
+    object HTTP{
+        const val SUCESS = 200
+    }
+
+    // requisiçoes API
 
 }

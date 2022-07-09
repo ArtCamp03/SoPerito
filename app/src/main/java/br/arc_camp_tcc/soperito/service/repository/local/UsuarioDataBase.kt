@@ -1,4 +1,4 @@
-package br.arc_camp_tcc.soperito.service.repository
+package br.arc_camp_tcc.soperito.service.repository.local
 
 import android.content.Context
 import androidx.room.Database
@@ -28,7 +28,7 @@ abstract class UsuarioDataBase : RoomDatabase() {
         fun getUsuario(context: Context): UsuarioDataBase {
             // constroi o banco de dados
             // se instancia nao for inicializada o laço inicializo
-            if (!::INSTANCE.isInitialized) {
+            if (!Companion::INSTANCE.isInitialized) {
                 // so entra uma thread por vez
                 synchronized(UsuarioDataBase::class) {
                     INSTANCE =

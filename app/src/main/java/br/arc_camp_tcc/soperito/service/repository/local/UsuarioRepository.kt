@@ -1,4 +1,4 @@
-package br.arc_camp_tcc.soperito.service.repository
+package br.arc_camp_tcc.soperito.service.repository.local
 
 import android.content.Context
 import br.arc_camp_tcc.soperito.service.model.EmpregadorModel
