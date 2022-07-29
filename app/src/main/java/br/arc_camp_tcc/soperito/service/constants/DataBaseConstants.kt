@@ -74,5 +74,10 @@ class DataBaseConstants private constructor() {
     }
 
     // requisiçoes API
+    object HEADER{
+            const val TOKEN_KEY = "token_key"
+        const val PERSON_KEY = "person_key"
+
+    }
 
 }

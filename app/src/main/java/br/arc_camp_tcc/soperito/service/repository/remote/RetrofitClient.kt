@@ -15,10 +15,12 @@ class RetrofitClient private constructor() {
 
             val httpClient = OkHttpClient.Builder()
 
+            // intersepta requisiçao modifica parametros e retorna as alteraçeos
             httpClient.addInterceptor(object : Interceptor{
                 override fun intercept(chain: Interceptor.Chain): Response {
                     val request = chain.request()
                         .newBuilder()
+                        .addHeader()
                         .build()
                     return chain.proceed(request)
                 }
