@@ -3,35 +3,22 @@ package br.arc_camp_tcc.soperito.service.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
 // mapeamento de interface de banco
 // utilizando anotations da biblioteca ROOM
 
-@Entity(tableName = "empregador")
-class EmpregadorModel  {
+@Entity(tableName = "empregadores")
+class EmpregadorModel {
 
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "codEmp")
+    @SerializedName("cod_emp")
+    @ColumnInfo(name = "cod_emp")
+    @PrimaryKey
     var codEmp: Int = 0
 
-    @ColumnInfo(name = "codigUsuario")
-    var codigUsuario: Int = 0
-
-    @ColumnInfo(name = "userEmp")
-    var userEmp: Boolean = false
-
-    @ColumnInfo(name = "statusEmp")
+    @SerializedName("status_emp")
+    @ColumnInfo(name = "status_emp")
     var statusEmp: String = ""
 
-    @ColumnInfo(name = "dispPagar")
-    var dispPagar: Float = 0.0f
 
-    @ColumnInfo(name = "servicoDesejado")
-    var servicoDesejado: String = ""
-
-    @ColumnInfo(name = "tempExp")
-    var tempExp: Int = 0
-
-    @ColumnInfo(name = "descVaga")
-    var descVaga: String = ""
 }

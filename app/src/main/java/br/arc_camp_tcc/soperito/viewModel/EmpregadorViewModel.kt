@@ -2,23 +2,23 @@ package br.arc_camp_tcc.soperito.viewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import br.arc_camp_tcc.soperito.service.model.UsuarioModel
-import br.arc_camp_tcc.soperito.service.repository.local.UsuarioRepository
+import br.arc_camp_tcc.soperito.service.repository.bancoRepository
 
 class EmpregadorViewModel(aplication: Application): AndroidViewModel(aplication)  {
 
-    private val repository = UsuarioRepository(aplication.applicationContext)
-
-    fun insert(empregador: UsuarioModel){
-        repository.insert(empregador)
+    private val repository = bancoRepository(aplication.applicationContext)
+/*
+    fun insert(empregadores: EmpregadorModel){
+        repository.insert(empregadores)
     }
 
-    fun get(empregador: UsuarioModel){
-        repository.insert(empregador)
+    fun get(empregadores: EmpregadorModel){
+        repository.insert(empregadores)
     }
 
-    fun delete(empregador: UsuarioModel){
-        repository.insert(empregador)
+    fun delete(empregadores: EmpregadorModel){
+        repository.insert(empregadores)
     }
 
+ */
 }

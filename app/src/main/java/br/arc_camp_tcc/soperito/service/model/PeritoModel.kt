@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 // mapeamento de interface de banco
 
-@Entity(tableName = "perito")
+@Entity(tableName = "peritos")
 class PeritoModel{
 
     @PrimaryKey(autoGenerate = true)

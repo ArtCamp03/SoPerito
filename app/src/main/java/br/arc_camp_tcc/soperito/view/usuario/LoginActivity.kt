@@ -5,15 +5,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityLoginBinding
-import br.arc_camp_tcc.soperito.service.model.Person.PersonLoginModel
-import br.arc_camp_tcc.soperito.service.model.VerifyLoginModel
 import br.arc_camp_tcc.soperito.viewModel.LoginViewModel
-import br.arc_camp_tcc.soperito.viewModel.UsuarioViewModel
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -35,6 +30,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         binding.buttonLogin.setOnClickListener(this)
         binding.textFogotPassword.setOnClickListener(this)
 
+        // verifica se o usuario ja estava logado
+        mViewModel.verifyLoggedUser()
+
         //inicializa eventos
         observe()
 
@@ -43,9 +41,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         if (v.id == R.id.button_login) {
-            //handleLogin()
-            val fogotPassword = Intent(this, ProfileChoiceActivity::class.java)
-            startActivity(fogotPassword)
+            handleLogin()
         } else if (v.id == R.id.text_fogot_password) {
             val fogotPassword = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(fogotPassword)
@@ -54,6 +50,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    // observa variavel
     private fun observe() {
         mViewModel.login.observe(this) {
             if (it.status()) {
@@ -63,12 +60,19 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(applicationContext, it.message(), Toast.LENGTH_SHORT).show()
             }
         }
+
+        mViewModel.loggedUser.observe(this){
+            if(it){
+                startActivity(Intent(applicationContext, ProfileChoiceActivity::class.java))
+                finish()
+            }
+        }
     }
 
     private fun handleLogin() {
         val email = binding.editEmail.text.toString()
         val senha = binding.editPassword.text.toString()
-        (mViewModel.doLogin(email, senha))
+        mViewModel.doLogin(email, senha)
     }
 
 }

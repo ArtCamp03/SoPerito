@@ -31,10 +31,8 @@ class EditPerfilEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
             var endereco = binding.editTelefone.text.toString()
             var telefone = binding.editTelefone.text.toString()
             var exp = binding.editXp.text.toString()
-            var statusEmp = binding.editStatusEmpregador.text.toString()
-            var dispPagar = binding.editDispPagar.text.toString()
 
-            if (nome != "" && endereco != "" && telefone != "" && exp != "" && statusEmp != "" && dispPagar != "") {
+            if (nome != "" && endereco != "" && telefone != "" && exp != "" ) {
                 Toast.makeText(this, R.string.valid_registre, Toast.LENGTH_SHORT)
                 val btnSalvar = Intent(this, ActivityPerfilEmpregadorBinding::class.java)
                 startActivity(btnSalvar)

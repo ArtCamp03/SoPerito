@@ -39,19 +39,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_name_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:text="Artur Campos"
-        android:textAllCaps="true"
-        android:textColor="@color/gold"
-        android:textSize="26sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_action_bar" />
-
-    <TextView
         android:id="@+id/text_dados_contato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,7 +47,7 @@
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_name_user" />
+        app:layout_constraintTop_toBottomOf="@+id/img_user" />
 
     <TextView
         android:id="@+id/text_nome"
@@ -143,100 +130,58 @@
         app:layout_constraintStart_toEndOf="@+id/text_telefone"
         app:layout_constraintTop_toBottomOf="@+id/edit_endereco" />
 
-    <TextView
-        android:id="@+id/text_contratacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="Requisitos para candidato"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_telefone" />
 
     <TextView
-        android:id="@+id/text_xp"
+        android:id="@+id/text_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
         android:padding="4dp"
-        android:text="Tempo de experiencia:"
+        android:text="Email:"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/edit_xp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_contratacao" />
+        app:layout_constraintTop_toBottomOf="@+id/text_telefone" />
 
     <EditText
         android:id="@+id/edit_xp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="12dp"
         android:background="@color/gold"
         android:inputType="text"
         android:textColorHint="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_xp"
-        app:layout_constraintTop_toBottomOf="@+id/text_contratacao" />
+        app:layout_constraintStart_toEndOf="@+id/text_email"
+        app:layout_constraintTop_toBottomOf="@+id/edit_telefone" />
+
 
     <TextView
-        android:id="@+id/text_status_empregador"
+        android:id="@+id/text_status"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="12dp"
         android:padding="4dp"
         android:text="Status Empregador:"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/edit_status_empregador"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_xp" />
+        app:layout_constraintTop_toBottomOf="@+id/text_email"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_status"
+        />
 
-    <EditText
-        android:id="@+id/edit_status_empregador"
-        android:layout_width="0dp"
+    <Spinner
+        android:id="@+id/spinner_status"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="12dp"
-        android:background="@color/gold"
-        android:inputType="text"
-        android:textColorHint="@color/black"
-        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/spiner_values"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_status_empregador"
-        app:layout_constraintTop_toBottomOf="@+id/edit_xp" />
-
-    <TextView
-        android:id="@+id/text_disp_pagar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="12dp"
-        android:padding="4dp"
-        android:text="Disposto a pagar ate:"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/edit_disp_pagar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_status_empregador" />
-
-    <EditText
-        android:id="@+id/edit_disp_pagar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="12dp"
-        android:background="@color/gold"
-        android:inputType="text"
-        android:textColorHint="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_disp_pagar"
-        app:layout_constraintTop_toBottomOf="@+id/edit_status_empregador" />
+        app:layout_constraintTop_toBottomOf="@+id/text_status"/>
 
     <Button
         android:id="@+id/btn_cancelar"

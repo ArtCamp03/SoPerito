@@ -4,13 +4,14 @@ package br.arc_camp_tcc.soperito.service.constants
 class DataBaseConstants private constructor() {
 
     object USER{
-        const val TABLE_NAME = "usuario"
+        const val TABLE_NAME = "usuarios"
 
         object COLUMNS {
             const val COD_USER = "codigUsuario"
             const val USER_PERITO = "userPerito"
             const val USER_EMP = "userEmp"
-            const val COD_SEG = "codSeguranca"
+            const val COD_PERITO = "codPerito"
+            const val COD_EMP = "codEmp"
             const val EMAIL = "email"
             const val NOME = "nome"
             const val CPF = "cpf"
@@ -20,7 +21,7 @@ class DataBaseConstants private constructor() {
     }
 
     object PERITO{
-        const val TABLE_NAME = "perito"
+        const val TABLE_NAME = "peritos"
 
         object COLUMNS {
             const val COD_PERITO = "codPerito"
@@ -37,7 +38,7 @@ class DataBaseConstants private constructor() {
     }
 
     object EMPREGADOR{
-        const val TABLE_NAME = "empregador"
+        const val TABLE_NAME = "empregadores"
 
         object COLUMNS {
             const val COD_EMPREGADOR = "codEmpregador"
@@ -53,7 +54,7 @@ class DataBaseConstants private constructor() {
     }
 
     object TRANSACAO{
-        const val TABLE_NAME = "transacao"
+        const val TABLE_NAME = "transacoes"
 
         object COLUMNS {
             const val COD_TRANSAC = "codTransc"
@@ -70,14 +71,20 @@ class DataBaseConstants private constructor() {
     }
 
     object HTTP{
-        const val SUCESS = 200
+        const val SUCCESS = 200
     }
 
     // requisiçoes API
     object HEADER{
-            const val TOKEN_KEY = "token_key"
-        const val PERSON_KEY = "person_key"
+        const val TOKEN_KEY = "senha"
+        const val PERSON_KEY = "email"
+    }
 
+    // dados de compartilhamento
+    object SHARED{
+        const val TOKEN_KEY = "senha"
+        const val PERSON_KEY = "email"
+        const val USER_KEY = "codUser"
     }
 
 }

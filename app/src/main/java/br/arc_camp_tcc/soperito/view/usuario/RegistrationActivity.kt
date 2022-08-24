@@ -9,12 +9,12 @@ import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityRegistrationBinding
 import br.arc_camp_tcc.soperito.service.model.UsuarioModel
-import br.arc_camp_tcc.soperito.viewModel.UsuarioViewModel
+import br.arc_camp_tcc.soperito.viewModel.RegistryViewModel
 
 class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityRegistrationBinding
-    private lateinit var viewModel: UsuarioViewModel
+    private lateinit var mViewModel: RegistryViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,51 +23,55 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         // viewModel esta atrelada a ativitity
-        viewModel = ViewModelProvider(this).get(UsuarioViewModel::class.java)
+        mViewModel = ViewModelProvider(this).get(RegistryViewModel::class.java)
 
         binding.buttonConfirm.setOnClickListener(this)
         binding.buttonCancel.setOnClickListener(this)
+
+        observe()
 
         supportActionBar?.hide()
     }
 
     override fun onClick(v: View) {
-
         if (v.id == R.id.button_confirm) {
-            val email = binding.editEmail.text.toString()
-            val nome = binding.editName.text.toString()
-            val cpf = binding.editCpf.text.toString()
-            val telefone = binding.editTelephone.text.toString()
-            val senha = binding.editPassword.text.toString()
-            val novaSenha = binding.editPasswordConfirm.text.toString()
-
-            if (email != "" && nome != "" && nome != "" && cpf != "" && senha != "") {
-                if (senha.equals(novaSenha)) {
-
-                    val model = UsuarioModel()
-
-                    model.email = email
-                    model.nome = nome
-                    model.cpf = cpf
-                    model.telefone = telefone
-                    model.senha = senha
-
-                    viewModel.insert(model)
-
-                    Toast.makeText(this, R.string.valid_registre, Toast.LENGTH_LONG).show()
-                    val registre = Intent(this, LoginActivity::class.java)
-                    startActivity(registre)
-                } else {
-                    Toast.makeText(this, R.string.incaptivel_senha, Toast.LENGTH_LONG).show()
-                }
-            } else {
-                Toast.makeText(this, R.string.incaptivel_senha, Toast.LENGTH_LONG).show()
-            }
-        }
-        if (v.id == R.id.button_cancel) {
+            handleSave()
+        }else if (v.id == R.id.button_cancel) {
             Toast.makeText(this, R.string.cadastro_no_complete, Toast.LENGTH_LONG).show()
             val cancel = Intent(this, IntroActivity::class.java)
             startActivity(cancel)
         }
+    }
+
+    // observa variavel
+    private fun observe(){
+        mViewModel.registryUser.observe(this){
+            if(it.status()){
+                Toast.makeText(this,R.string.valid_registre, Toast.LENGTH_SHORT).show()
+                startActivity(Intent(applicationContext, LoginActivity::class.java))
+                finish()
+            }else{
+                Toast.makeText(applicationContext, it.message(), Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun handleSave() {
+        val usuario = UsuarioModel().apply {
+            this.senha = binding.editPassword.text.toString()
+            this.email = binding.editEmail.text.toString()
+            this.cpf = binding.editCpf.text.toString()
+            this.nome = binding.editName.text.toString()
+            this.telefone = binding.editTelephone.text.toString()
+        }
+
+        val senhaConfirm = binding.editPasswordConfirm.text.toString()
+
+        if(senhaConfirm.equals(usuario.senha)){
+            mViewModel.registre(usuario)
+        }else{
+            Toast.makeText(this, R.string.senha_incompativel, Toast.LENGTH_LONG).show()
+        }
+
     }
 }

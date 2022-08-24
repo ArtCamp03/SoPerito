@@ -4,13 +4,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityMenuConfigBinding
 import br.arc_camp_tcc.soperito.view.perito.PerfilActivity
+import br.arc_camp_tcc.soperito.viewModel.MenuConfigViewModel
 
 class MenuConfigActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityMenuConfigBinding
+    private lateinit var mViewModel : MenuConfigViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,10 +21,14 @@ class MenuConfigActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityMenuConfigBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        mViewModel = ViewModelProvider(this).get(MenuConfigViewModel::class.java)
+
         binding.imgActionBar.setOnClickListener(this)
         binding.btnConfigSeguranca.setOnClickListener(this)
         binding.btnTrocaPerfil.setOnClickListener(this)
         binding.btnSairDaConta.setOnClickListener(this)
+
+        observe()
 
         supportActionBar?.hide()
     }
@@ -36,9 +43,14 @@ class MenuConfigActivity : AppCompatActivity(), View.OnClickListener {
             val trocaPerfil = Intent(this, ProfileChoiceActivity::class.java)
             startActivity(trocaPerfil)
         }else if(v.id == R.id.btn_sair_da_conta){
-            val sairConta = Intent(this, LoginActivity::class.java)
-            startActivity(sairConta)
+            mViewModel.logout()
+            startActivity(Intent(applicationContext, LoginActivity::class.java))
+            finish()
         }
+    }
+
+    private fun observe(){
+
     }
 
 }

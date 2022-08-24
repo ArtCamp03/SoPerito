@@ -20,14 +20,27 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_start">StartActivity</string>
+
+    <!-- Portugues ERRORS-->
+
     <string name="valid_registre">Dados salvos com sucesso !!</string>
+    <string name="register_not_found">Dados nao foram encontrados !!</string>
+    <string name="load_dados">Load Concluido !!</string>
     <string name="erro_salvamento">Erro ao salvar dados!</string>
     <string name="invalid_registre">Dado invalido</string>
     <string name="camp_blank">Proibido campo vazio</string>
     <string name="back_registre">Tente novamente</string>
     <string name="cadastro_no_complete">Cadastro nao concluido !!</string>
     <string name="erro_login">Usuario ou Senha invalido</string>
-    <string name="incaptivel_senha">campos senha e nova senha sao imcompativeis</string>
+    <string name="senha_incompativel">campos senha e nova senha sao imcompativeis</string>
     <string name="confirm_user">Usuario confirmado</string>
     <string name="erro_inesperado">Erro Inesperado</string>
+    <string name="erro_conexao">Erro ao se conectar</string>
+    <string name="erro_vagas">Nenhuma vaga encontrada</string>
+
+    <string-array name="spiner_values">
+        <item>online</item>
+        <item>offline</item>
+    </string-array>
+
 </resources>

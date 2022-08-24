@@ -3,12 +3,12 @@ package br.arc_camp_tcc.soperito.viewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import br.arc_camp_tcc.soperito.service.model.UsuarioModel
-import br.arc_camp_tcc.soperito.service.repository.local.UsuarioRepository
+import br.arc_camp_tcc.soperito.service.repository.bancoRepository
 
 // aplication instancia o context do repository
 class TransacaoViewModel(aplication: Application) : AndroidViewModel(aplication) {
 
-    private val repository = UsuarioRepository(aplication.applicationContext)
+    private val repository = bancoRepository(aplication.applicationContext)
 
     fun insert(login: UsuarioModel){
         repository.insert(login)

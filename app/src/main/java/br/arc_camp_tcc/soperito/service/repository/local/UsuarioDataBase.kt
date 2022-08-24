@@ -45,9 +45,6 @@ abstract class UsuarioDataBase : RoomDatabase() {
             override fun migrate(database: SupportSQLiteDatabase) {
                // database.execSQL("DELETE FROM usuario")
             }
-
         }
-
     }
-
 }

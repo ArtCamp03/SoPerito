@@ -5,42 +5,49 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-// mapeamento de interface de banco
+// recebe as informaçoes da API
+@Entity(tableName = "usuarios")
+class UsuarioModel {
 
-@Entity(tableName = "usuario")
-class UsuarioModel{
-
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "codigUsuario")
+    @SerializedName("cod_usuario")
+    @ColumnInfo(name = "cod_usuario")
+    @PrimaryKey
     var codigUsuario: Int = 0
 
-    @ColumnInfo(name = "codEmp")
-    var codEmp: Int = 0
-
-    @ColumnInfo(name = "codPerito")
-    var codPerito: Int = 0
-
-    @ColumnInfo(name = "userPerito")
+    @SerializedName("user_perito")
+    @ColumnInfo(name = "user_perito")
     var userPerito: Boolean = false
 
-    @ColumnInfo(name = "userEmp")
+    @SerializedName("user_emp")
+    @ColumnInfo(name = "user_emp")
     var userEmp: Boolean = false
 
-    @ColumnInfo(name = "email")
-    var email: String = ""
+    @SerializedName("cod_perito")
+    @ColumnInfo(name = "cod_perito")
+    var codPerito: Int = 0
 
+    @SerializedName("cod_emp")
+    @ColumnInfo(name = "cod_emp")
+    var codEmp: Int = 0
+
+    @SerializedName("email")
+    @ColumnInfo(name = "email")
+    lateinit var email: String
+
+    @SerializedName("nome")
     @ColumnInfo(name = "nome")
     var nome: String = ""
 
+    @SerializedName("cpf")
     @ColumnInfo(name = "cpf")
-    var cpf: String = ""
+    lateinit var cpf: String
 
+    @SerializedName("telefone")
     @ColumnInfo(name = "telefone")
-    var telefone: String = ""
+    lateinit var telefone: String
 
+    @SerializedName("senha")
     @ColumnInfo(name = "senha")
-    var senha: String = ""
+    lateinit var senha: String
 
-    @ColumnInfo(name = "codSeguranca")
-    var codSeguranca: Int = 0
 }
