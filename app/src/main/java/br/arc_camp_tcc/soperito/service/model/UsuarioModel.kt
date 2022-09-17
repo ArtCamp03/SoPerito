@@ -16,11 +16,11 @@ class UsuarioModel {
 
     @SerializedName("user_perito")
     @ColumnInfo(name = "user_perito")
-    var userPerito: Boolean = false
+    var userPerito: Int = 0
 
     @SerializedName("user_emp")
     @ColumnInfo(name = "user_emp")
-    var userEmp: Boolean = false
+    var userEmp: Int = 0
 
     @SerializedName("cod_perito")
     @ColumnInfo(name = "cod_perito")

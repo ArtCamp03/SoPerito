@@ -19,7 +19,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         //var auth: FirebaseAuth = Firebase.auth
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -45,6 +44,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         } else if (v.id == R.id.text_fogot_password) {
             val fogotPassword = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(fogotPassword)
+            finish()
         } else {
             Toast.makeText(this, R.string.erro_login, Toast.LENGTH_SHORT).show()
         }

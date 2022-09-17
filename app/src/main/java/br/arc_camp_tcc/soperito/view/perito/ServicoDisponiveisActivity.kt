@@ -24,7 +24,7 @@ class ServicoDisponiveisActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         if(v.id == R.id.img_action_bar){
-            val btn_perfil = Intent(this, PerfilActivity::class.java)
+            val btn_perfil = Intent(this, PerfilPeritoActivity::class.java)
             startActivity(btn_perfil)
         }
     }

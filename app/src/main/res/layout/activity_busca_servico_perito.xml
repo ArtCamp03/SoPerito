@@ -47,7 +47,7 @@
         app:layout_constraintTop_toTopOf="@+id/edit_barra_search" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_disp_service"
+        android:id="@+id/recycler_busca_service"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"

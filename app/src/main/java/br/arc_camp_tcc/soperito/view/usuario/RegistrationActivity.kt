@@ -36,10 +36,12 @@ class RegistrationActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         if (v.id == R.id.button_confirm) {
             handleSave()
+            finish()
         }else if (v.id == R.id.button_cancel) {
             Toast.makeText(this, R.string.cadastro_no_complete, Toast.LENGTH_LONG).show()
             val cancel = Intent(this, IntroActivity::class.java)
             startActivity(cancel)
+            finish()
         }
     }
 

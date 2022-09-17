@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    tools:context=".RowPeritoList">
+
+    <RelativeLayout
+        android:id="@+id/relative_perito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/card_view_bg">
+
+        <TextView
+            android:id="@+id/text_icon_perito"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/circule"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/text_nome_perito"
+            android:layout_width="216dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/text_icon_perito"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/text_icon_perito"
+            android:ellipsize="marquee"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="Nome"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/text_nome_vaga"
+            android:layout_width="216dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_nome_perito"
+            android:layout_alignStart="@id/text_nome_perito"
+            android:gravity="center"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Encanador"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <!--
+
+          <ImageView
+
+                    android:id="@+id/image_delete_perito"
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/text_nome_perito"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_toEndOf="@id/text_nome_perito"
+                    android:src="@drawable/ic_delete" />
+
+                <ImageView
+                    android:id="@+id/image_acept_perito"
+                    android:layout_width="36dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/text_nome_perito"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_toEndOf="@id/image_delete_perito"
+                    android:src="@drawable/ic_check_circle" />
+
+        -->
+
+        <TextView
+            android:id="@+id/text_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="46dp"
+            android:ellipsize="marquee"
+            android:gravity="end"
+            android:singleLine="true"
+            android:text="14 Setembro"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

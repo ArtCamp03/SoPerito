@@ -33,7 +33,7 @@ class PersonRepository(context: Context): BaseRepository(context) {
 
             // falha de comunicaçao
             override fun onFailure(call: Call<PersonLoginModel>, t: Throwable) {
-                listener.onFailure(context.getString(R.string.erro_inesperado))
+                listener.onFailure(context.getString(R.string.erro_conexao))
             }
         })
 

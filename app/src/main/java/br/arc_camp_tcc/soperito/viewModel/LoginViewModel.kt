@@ -7,7 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.APIListener
 import br.arc_camp_tcc.soperito.service.model.Person.PersonLoginModel
-import br.arc_camp_tcc.soperito.service.model.UsuarioModel
 import br.arc_camp_tcc.soperito.service.model.ValidationModel
 import br.arc_camp_tcc.soperito.service.repository.PersonRepository
 import br.arc_camp_tcc.soperito.service.repository.SecurityPreferences

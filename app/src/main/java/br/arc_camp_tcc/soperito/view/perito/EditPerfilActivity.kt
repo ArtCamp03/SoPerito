@@ -5,12 +5,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityEditPerfilPeritoBinding
+import br.arc_camp_tcc.soperito.viewModel.PerfilPeritoViewModel
 
 class EditPerfilActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityEditPerfilPeritoBinding
+    private lateinit var viewModel : PerfilPeritoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,50 +21,52 @@ class EditPerfilActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityEditPerfilPeritoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        viewModel = ViewModelProvider(this).get(PerfilPeritoViewModel::class.java)
+
         binding.btnSalvar.setOnClickListener(this)
         binding.btnCancelar.setOnClickListener(this)
         binding.btnAddEsp.setOnClickListener(this)
         binding.btnAddXp.setOnClickListener(this)
 
+        observe()
+
         supportActionBar?.hide()
     }
 
     override fun onClick(v: View) {
-        if(v.id == R.id.btn_salvar){
-            Toast.makeText(this, R.string.valid_registre, Toast.LENGTH_LONG).show()
-            val salvar = Intent(this, MenuPeritoActivity::class.java)
-            startActivity(salvar)
-        }else if(v.id == R.id.btn_add_xp){
-            addExperiencia()
+        val experiencia = binding.editAddExperiencia.text.toString()
+        val especialidade = binding.editAddEspecialidade.text.toString()
+
+        if(v.id == R.id.btn_add_xp){
+            binding.textResulXp.setText(experiencia)
         }else if(v.id == R.id.btn_add_esp){
-            addEspecialdiade()
+            binding.textResulEsp.setText(especialidade)
         }else if(v.id == R.id.btn_cancelar){
-            val cancelar = Intent(this, PerfilActivity::class.java)
-            startActivity(cancelar)
+            startActivity(Intent(this, PerfilPeritoActivity::class.java))
+        }else if(v.id == R.id.btn_salvar){
+            if(experiencia != null && especialidade != null){
+                addPerfil(experiencia, especialidade)
+            }else{
+                addPerfil("", "")
+            }
         }
+
     }
 
-    fun addExperiencia(){
-        var cont = 0
-        while(cont < 3){
-            var experiencia = binding.editAddExperiencia.text.toString()
-            var listaXp : MutableList<String> = mutableListOf()
-            listaXp.add(experiencia)
-            binding.textResulXp.setText(listaXp.toString())
-            cont = cont + 1
-        }
+    fun addPerfil(exp : String ,esp : String){
+        viewModel.setPerfil(exp,esp)
     }
 
-    fun addEspecialdiade(){
-        var cont = 0
-        while(cont < 3){
-            var especialidade = binding.editAddEspecialidade.text.toString()
-            var listaXp : MutableList<String> = mutableListOf()
-            listaXp.add(especialidade)
-            binding.textResulEsp.setText(listaXp.toString())
-            cont = cont + 1
+    private fun observe(){
+        viewModel.setPerfil.observe(this){
+            if(it.status()){
+                Toast.makeText(applicationContext,R.string.save, Toast.LENGTH_LONG).show()
+                startActivity(Intent(applicationContext, PerfilPeritoActivity::class.java))
+                finish()
+            }else{
+                Toast.makeText(applicationContext, it.message(), Toast.LENGTH_LONG).show()
+            }
         }
     }
-
 
 }

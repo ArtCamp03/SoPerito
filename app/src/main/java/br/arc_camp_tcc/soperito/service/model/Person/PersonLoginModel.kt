@@ -13,4 +13,5 @@ class PersonLoginModel {
 
     @SerializedName("cod_usuario")
     var codUsuario: Int = 0
+
 }

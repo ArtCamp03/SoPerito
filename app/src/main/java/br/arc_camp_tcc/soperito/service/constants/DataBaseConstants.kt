@@ -25,14 +25,27 @@ class DataBaseConstants private constructor() {
 
         object COLUMNS {
             const val COD_PERITO = "codPerito"
-            const val USER_PERITO = "userPerito"
             const val COD_USER = "codigUsuario"
-            const val SERVICE = "service"
+            const val USER_PERITO = "userPerito"
+            const val NOME = "nome"
+            const val EXP = "exp"
+            const val ESP = "espec"
+        }
+
+    }
+
+    object CURRICULO{
+        const val TABLE_NAME = "curriculos"
+
+        object COLUMNS {
+            const val COD_PERITO = "codPerito"
+            const val COD_CURRICULO = "codCurriculo"
+            const val NOME = "nome"
+            const val SERVICO = "servico"
             const val TEMP = "temp"
             const val OBS = "obs"
             const val VALOR = "valor"
-            const val EXP = "exp"
-            const val ESP = "esp"
+            const val DATA = "dataCurriculo"
         }
 
     }
@@ -41,14 +54,21 @@ class DataBaseConstants private constructor() {
         const val TABLE_NAME = "empregadores"
 
         object COLUMNS {
-            const val COD_EMPREGADOR = "codEmpregador"
-            const val COD_USER = "codigUsuario"
+            const val COD_EMPREGADOR = "codEmp"
+            const val COD_USER = "codUser"
             const val USER_EMP = "userEmp"
             const val STATUS_EMP = "statusEmp"
+            const val NOME = "nome"
+            const val COD_VAGA = "codVaga"
+            const val TELEFONE = "telefone"
+            const val EMAIL = "email"
+            /*
             const val DISP_PAGAR = "dispPagar"
             const val SERV_DESEJADO = "servicoDesejado"
             const val TEMP_EXP = "tempExp"
             const val DESC_VAGA = "descVaga"
+
+             */
         }
 
     }
@@ -72,6 +92,7 @@ class DataBaseConstants private constructor() {
 
     object HTTP{
         const val SUCCESS = 200
+        const val FAILURE = 400
     }
 
     // requisiçoes API
@@ -85,6 +106,12 @@ class DataBaseConstants private constructor() {
         const val TOKEN_KEY = "senha"
         const val PERSON_KEY = "email"
         const val USER_KEY = "codUser"
+    }
+
+    // dados de compartilhamento
+    object BUNDLE{
+        const val COD_PERITO = "codPerito"
+        const val COD_CURRICULO = "cod_curriculo"
     }
 
 }

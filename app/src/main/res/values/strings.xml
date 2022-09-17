@@ -22,9 +22,13 @@
     <string name="title_activity_start">StartActivity</string>
 
     <!-- Portugues ERRORS-->
-
+    <string name="save">Salvo !!</string>
     <string name="valid_registre">Dados salvos com sucesso !!</string>
+    <string name="update_invalid">Dados nao foram alterados !!</string>
     <string name="register_not_found">Dados nao foram encontrados !!</string>
+    <string name="erro_conta_perito">ERRO ao criar conta Perito !!</string>
+    <string name="erro_conta_empregador">ERRO ao criar conta Empregador !!</string>
+    <string name="perito_not_found">Conta Perito nao existe !!</string>
     <string name="load_dados">Load Concluido !!</string>
     <string name="erro_salvamento">Erro ao salvar dados!</string>
     <string name="invalid_registre">Dado invalido</string>
@@ -37,6 +41,7 @@
     <string name="erro_inesperado">Erro Inesperado</string>
     <string name="erro_conexao">Erro ao se conectar</string>
     <string name="erro_vagas">Nenhuma vaga encontrada</string>
+    <string name="erro_peritoss">Nenhuma perito encontrada</string>
 
     <string-array name="spiner_values">
         <item>online</item>

@@ -3,39 +3,57 @@ package br.arc_camp_tcc.soperito.service.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
 // mapeamento de interface de banco
 
 @Entity(tableName = "peritos")
 class PeritoModel{
 
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "codPerito")
-    var codPerito: Int = 0
-
-    @ColumnInfo(name = "codigUsuario")
+    @SerializedName("cod_usuario")
+    @ColumnInfo(name = "cod_usuario")
     var codigUsuario: Int = 0
 
-    @ColumnInfo(name = "userPerito")
-    var userPerito: Boolean = false
+    @SerializedName("cod_perito")
+    @PrimaryKey
+    @ColumnInfo(name = "cod_perito")
+    var codPerito: Int = 0
 
-    @ColumnInfo(name = "service")
-    var service: String = ""
+    @SerializedName("user_perito")
+    @ColumnInfo(name = "user_perito")
+    var userPerito: Int = 0
 
+    @SerializedName("nome_perito")
+    @ColumnInfo(name = "nome_perito")
+    var nome: String = ""
+
+    @SerializedName("servico")
+    @ColumnInfo(name = "servico")
+    var servico: String = ""
+
+    @SerializedName("temp")
     @ColumnInfo(name = "temp")
-    var temp: Int = 0
+    var temp: String = ""
 
+    @SerializedName("obs")
     @ColumnInfo(name = "obs")
     var obs: String = ""
 
+    @SerializedName("valor")
     @ColumnInfo(name = "valor")
-    var valor: Float = 0.0f
+    var valor: String = ""
 
+    @SerializedName("exp")
     @ColumnInfo(name = "exp")
     var exp: String = ""
 
-    @ColumnInfo(name = "esp")
-    var esp: String = ""
+    @SerializedName("espec")
+    @ColumnInfo(name = "espec")
+    var espec: String = ""
+
+    @SerializedName("data_curriculo")
+    @ColumnInfo(name = "data_curriculo")
+    var dataCurriculo: String = ""
 
 }
 

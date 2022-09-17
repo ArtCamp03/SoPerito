@@ -25,10 +25,12 @@
         android:layout_height="wrap_content"
         android:text="Curriculo"
         android:textSize="22sp"
+        android:textStyle="bold"
         android:layout_marginTop="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/img_action_bar"
+        android:layout_marginStart="86dp"
+        app:layout_constraintTop_toBottomOf="@id/img_action_bar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@id/tex_data" />
 
     <TextView
         android:id="@+id/text_nome_vaga"
@@ -36,8 +38,8 @@
         android:layout_height="wrap_content"
         android:text="Serviço desejado:"
         android:textSize="18sp"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_titel_curriculo"/>
 
@@ -46,11 +48,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="8dp"
+        android:textColor="@color/gold"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="56dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintStart_toEndOf="@+id/text_nome_vaga"
-        app:layout_constraintTop_toBottomOf="@+id/text_titel_curriculo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_nome_vaga"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
@@ -59,21 +62,22 @@
         android:layout_height="wrap_content"
         android:text="tempo de experiencia:"
         android:textSize="18sp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="16dp"
         android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_nome_vaga"/>
+        app:layout_constraintTop_toBottomOf="@+id/edit_nome_vaga"/>
 
     <TextView
         android:id="@+id/edit_temp_xp"
-        android:layout_width="45dp"
+        android:layout_width="56dp"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:layout_marginTop="26dp"
-        android:layout_marginStart="8dp"
+        android:textColor="@color/gold"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="56dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintStart_toEndOf="@+id/text_temp_xp"
-        app:layout_constraintTop_toBottomOf="@+id/edit_nome_vaga" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_temp_xp" />
 
     <TextView
         android:id="@+id/text_descript_modo_servico"
@@ -84,16 +88,16 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_temp_xp"/>
+        app:layout_constraintTop_toBottomOf="@+id/edit_temp_xp"/>
 
     <TextView
         android:id="@+id/edit_descript_modo_servico"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:padding="4dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="8dp"
+        android:textColor="@color/gold"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="56dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_descript_modo_servico"
@@ -112,17 +116,67 @@
 
     <TextView
         android:id="@+id/edit_valor_min"
-        android:layout_width="45dp"
+        android:layout_width="56dp"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/gold"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_valor_min" />
+
+
+    <TextView
+        android:id="@+id/text_exp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Experiencia:"
         android:textSize="18sp"
         android:layout_marginTop="16dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintStart_toEndOf="@+id/text_valor_min"
-        app:layout_constraintTop_toBottomOf="@+id/edit_descript_modo_servico" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_valor_min"/>
 
+    <TextView
+        android:id="@+id/edit_exp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/gold"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_exp"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/text_esp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Especialidade:"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_exp"/>
+
+    <TextView
+        android:id="@+id/edit_esp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/gold"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_esp"
+        app:layout_constraintEnd_toEndOf="parent"/>
     <Button
-        android:id="@+id/btn_recusar"
+        android:id="@+id/btn_recusar_currculo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recusar"
@@ -131,11 +185,11 @@
         android:backgroundTint="@color/gold"
         android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_aceitar"
+        app:layout_constraintEnd_toStartOf="@+id/btn_aceitar_curriculo"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
-        android:id="@+id/btn_aceitar"
+        android:id="@+id/btn_aceitar_curriculo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Aceitar"
@@ -143,8 +197,22 @@
         android:textColor="@color/gold"
         android:backgroundTint="@color/black"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toEndOf="@+id/btn_recusar"
+        app:layout_constraintStart_toEndOf="@+id/btn_recusar_currculo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/tex_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="15/09/2022"
+        android:textSize="22sp"
+        android:textColor="@color/gold"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/text_titel_curriculo"
+        app:layout_constraintTop_toBottomOf="@id/img_action_bar"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

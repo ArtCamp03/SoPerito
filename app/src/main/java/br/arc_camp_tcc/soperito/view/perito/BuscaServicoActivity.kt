@@ -27,7 +27,7 @@ class BuscaServicoActivity : AppCompatActivity(), View.OnClickListener {
         if(v.id == R.id.btn_search){
             var pesquisa = binding.editBarraSearch.text.toString()
         }else if(v.id == R.id.img_action_bar){
-            val btn_perfil = Intent(this, PerfilActivity::class.java)
+            val btn_perfil = Intent(this, PerfilPeritoActivity::class.java)
             startActivity(btn_perfil)
         }
     }

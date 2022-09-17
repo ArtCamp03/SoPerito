@@ -77,7 +77,8 @@
         app:layout_constraintStart_toEndOf="@+id/text_nome"
         app:layout_constraintTop_toBottomOf="@+id/text_dados_contato" />
 
-    <TextView
+<!--
+ <TextView
         android:id="@+id/text_endereco"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -102,6 +103,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_endereco"
         app:layout_constraintTop_toBottomOf="@+id/edit_name" />
+-->
 
     <TextView
         android:id="@+id/text_telefone"
@@ -113,7 +115,7 @@
         android:text="Telefone:"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_endereco" />
+        app:layout_constraintTop_toBottomOf="@+id/text_nome" />
 
     <EditText
         android:id="@+id/edit_telefone"
@@ -128,7 +130,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_telefone"
-        app:layout_constraintTop_toBottomOf="@+id/edit_endereco" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_name" />
 
 
     <TextView
@@ -136,19 +138,19 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="4dp"
         android:padding="4dp"
         android:text="Email:"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/edit_xp"
+        app:layout_constraintEnd_toStartOf="@+id/edit_email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_telefone" />
 
     <EditText
-        android:id="@+id/edit_xp"
+        android:id="@+id/edit_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="12dp"
         android:background="@color/gold"
@@ -158,30 +160,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_email"
         app:layout_constraintTop_toBottomOf="@+id/edit_telefone" />
-
-
-    <TextView
-        android:id="@+id/text_status"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="12dp"
-        android:padding="4dp"
-        android:text="Status Empregador:"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_email"
-        app:layout_constraintBottom_toTopOf="@+id/spinner_status"
-        />
-
-    <Spinner
-        android:id="@+id/spinner_status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:entries="@array/spiner_values"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_status"/>
 
     <Button
         android:id="@+id/btn_cancelar"

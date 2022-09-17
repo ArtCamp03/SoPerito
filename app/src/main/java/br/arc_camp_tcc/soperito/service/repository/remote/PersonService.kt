@@ -10,7 +10,7 @@ interface PersonService {
     @POST("pagina/login.php")
     @FormUrlEncoded
     fun login( @Field("email") email: String,
-               @Field("senha") senha: String,
+               @Field("senha") senha: String
     ) : Call<PersonLoginModel>
 
 }

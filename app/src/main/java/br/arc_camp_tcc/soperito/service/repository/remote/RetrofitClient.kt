@@ -14,7 +14,6 @@ class RetrofitClient private constructor() {
         private var email : String = ""
         private var senha : String = ""
 
-
         private fun getRetrofitInstance(): Retrofit {
 
             val httpClient = OkHttpClient.Builder()

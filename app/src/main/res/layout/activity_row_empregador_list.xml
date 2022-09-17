@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".RowEmpregadorList">
+
+    <RelativeLayout
+        android:id="@+id/relative_empregador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/card_view_bg">
+
+        <TextView
+            android:id="@+id/text_icon_empregador"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/circule"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/text_nome_empregador"
+            android:layout_width="216dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/text_icon_empregador"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/text_icon_empregador"
+            android:gravity="center"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Nome"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/text_descricao"
+            android:layout_width="216dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_nome_empregador"
+            android:layout_alignStart="@id/text_nome_empregador"
+            android:gravity="center"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Descricao"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/text_data_empregador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="46dp"
+            android:ellipsize="marquee"
+            android:gravity="end"
+            android:singleLine="true"
+            android:text="14 Setembro"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

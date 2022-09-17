@@ -10,10 +10,19 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.SoPerito"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".view.usuario.SegurancaConfigActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RowEmpregadorList"
+            android:exported="false" />
+        <activity
+            android:name=".RowPeritoList"
+            android:exported="false" />
         <activity
             android:name=".view.usuario.ContaEmpregadorActivity"
             android:exported="false" />
@@ -21,10 +30,10 @@
             android:name=".view.usuario.ContaPeritoActivity"
             android:exported="false" />
         <activity
-            android:name=".CurriculoPeritoActivity"
+            android:name=".view.perito.CurriculoPeritoActivity"
             android:exported="false" />
         <activity
-            android:name=".VagaEmpregadorActivity"
+            android:name=".view.empregador.VagaEmpregadorActivity"
             android:exported="false" />
         <activity
             android:name=".view.empregador.AdicVagaActivity"
@@ -63,7 +72,7 @@
             android:name=".view.perito.EditPerfilActivity"
             android:exported="false" />
         <activity
-            android:name=".view.perito.PerfilActivity"
+            android:name=".view.perito.PerfilPeritoActivity"
             android:exported="false" />
         <activity
             android:name=".view.empregador.MenuEmpregadorActivity"

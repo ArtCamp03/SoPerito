@@ -19,6 +19,12 @@ class ProfileChoiceViewModel(application: Application): AndroidViewModel(applica
     private val _loadUsuario = MutableLiveData<ValidationModel>()
     val loadUsuario: LiveData<ValidationModel> = _loadUsuario
 
+    private val _cntPerito = MutableLiveData<Boolean>()
+    val cntPerito: LiveData<Boolean> = _cntPerito
+
+    private val _cntEmpregador = MutableLiveData<Boolean>()
+    val cntEmpregador: LiveData<Boolean> = _cntEmpregador
+
     private val codUsuario = securityPreferences.get(DataBaseConstants.SHARED.USER_KEY).toInt()
 
     fun loadDataUser() {
@@ -43,6 +49,30 @@ class ProfileChoiceViewModel(application: Application): AndroidViewModel(applica
             }
 
         })
+    }
+
+    fun verifyContaPerito(){
+        val codUser = securityPreferences.get(DataBaseConstants.USER.COLUMNS.COD_USER).toIntOrNull()
+        val userPerito = securityPreferences.get(DataBaseConstants.USER.COLUMNS.USER_PERITO).toIntOrNull()
+
+        var contaPerito : Boolean = false
+
+        if(codUser != 0 && userPerito == 1){
+            contaPerito = true
+        }
+        _cntPerito.value = contaPerito
+    }
+
+    fun verifyContaEmpregador() {
+        val codUser = securityPreferences.get(DataBaseConstants.USER.COLUMNS.COD_USER).toIntOrNull()
+        val userEmpregador = securityPreferences.get(DataBaseConstants.USER.COLUMNS.USER_EMP).toIntOrNull()
+        var contaEmpregador: Boolean = false
+
+        if (codUser != 0 && userEmpregador == 1) {
+            contaEmpregador = true
+        }
+
+        _cntEmpregador.value = contaEmpregador
     }
 
 }

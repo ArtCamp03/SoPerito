@@ -1,10 +1,13 @@
 package br.arc_camp_tcc.soperito.service.repository
 
 import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.os.Build
+import br.arc_camp_tcc.soperito.R
+import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
+import br.arc_camp_tcc.soperito.service.listeners.APIListener
 import com.google.gson.Gson
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 open class BaseRepository(val context: Context) {
 
@@ -13,11 +16,20 @@ open class BaseRepository(val context: Context) {
         return Gson().fromJson(str, String::class.java)
     }
 
-    /*
+    fun <T> handleResponse(response: Response<T>, listener: APIListener<T>){
+        if (response.code() == DataBaseConstants.HTTP.SUCCESS) {
+            response.body()?.let { listener.onSuccess(it) }
+        } else {
+            listener.onFailure(failResponse(response.errorBody()!!.string()))
+        }
+    }
+
+
+    // chamada de listagem da API
     fun <T> executeCall(call: Call<T>, listener: APIListener<T>) {
         call.enqueue(object : Callback<T> {
             override fun onResponse(call: Call<T>, response: Response<T>) {
-                if (response.code() == TaskConstants.HTTP.SUCCESS) {
+                if (response.code() == DataBaseConstants.HTTP.SUCCESS) {
                     response.body()?.let { listener.onSuccess(it) }
                 } else {
                     listener.onFailure(failResponse(response.errorBody()!!.string()))
@@ -25,16 +37,14 @@ open class BaseRepository(val context: Context) {
             }
 
             override fun onFailure(call: Call<T>, t: Throwable) {
-                listener.onFailure(context.getString(R.string.ERROR_UNEXPECTED))
+                listener.onFailure(context.getString(R.string.erro_conexao))
             }
         })
     }
-
-*/
-
+    
     /**
      * Verifica se existe conexão com internet
-     */
+    
     fun isConnectionAvailable(): Boolean {
         var result = false
 
@@ -63,4 +73,5 @@ open class BaseRepository(val context: Context) {
 
         return result
     }
+    */
 }

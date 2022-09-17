@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityAdicVagaBinding
-import br.arc_camp_tcc.soperito.view.perito.PerfilActivity
+import br.arc_camp_tcc.soperito.view.perito.PerfilPeritoActivity
 
 class AdicVagaActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -28,7 +28,7 @@ class AdicVagaActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         if (v.id == R.id.img_action_bar) {
-            val perfil = Intent(this, PerfilActivity::class.java)
+            val perfil = Intent(this, PerfilPeritoActivity::class.java)
             startActivity(perfil)
         } else if (v.id == R.id.btn_salvar) {
             var nomeVaga = binding.editNomeVaga.text.toString()
