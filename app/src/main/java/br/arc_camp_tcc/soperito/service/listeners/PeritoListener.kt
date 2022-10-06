@@ -2,7 +2,7 @@ package br.arc_camp_tcc.soperito.service.listeners
 
 interface PeritoListener {
 
-    // Adiçao
+    // Adiçao pelo id
     fun onlistClick(id: Int)
 
     // Remoçao

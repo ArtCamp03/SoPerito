@@ -15,6 +15,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".InfoContratanteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InfoCandidatoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShowContratanteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShowCandidatoActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.usuario.SegurancaConfigActivity"
             android:exported="false" />
         <activity
@@ -108,7 +120,6 @@
             android:theme="@style/Theme.SoPerito.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

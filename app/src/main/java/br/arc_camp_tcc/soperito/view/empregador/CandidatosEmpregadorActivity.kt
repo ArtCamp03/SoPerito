@@ -8,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.arc_camp_tcc.soperito.R
+import br.arc_camp_tcc.soperito.ShowCandidatoActivity
 import br.arc_camp_tcc.soperito.databinding.ActivityCandidatosEmpregadorBinding
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.PeritoListener
 import br.arc_camp_tcc.soperito.view.adapter.PeritoAdapter
-import br.arc_camp_tcc.soperito.view.perito.CurriculoPeritoActivity
 import br.arc_camp_tcc.soperito.view.perito.PerfilPeritoActivity
 import br.arc_camp_tcc.soperito.viewModel.ListPeritoViewModel
 
@@ -31,9 +31,15 @@ class CandidatosEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
 
         viewModel = ViewModelProvider(this).get(ListPeritoViewModel::class.java)
 
+        binding.imgActionBar.setOnClickListener(this)
+
+        // val recycle = binding.recyclerDispService
+        binding.recyclerDispCandidat.layoutManager = LinearLayoutManager(this)
+        binding.recyclerDispCandidat.adapter = adapter
+
         val listener = object : PeritoListener {
             override fun onlistClick(id: Int) {
-                val intent = Intent(applicationContext, CurriculoPeritoActivity::class.java)
+                val intent = Intent(applicationContext, ShowCandidatoActivity::class.java)
                 val bundle = Bundle()
                 bundle.putInt(DataBaseConstants.BUNDLE.COD_CURRICULO, id)
                 intent.putExtras(bundle)
@@ -48,12 +54,6 @@ class CandidatosEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
 
         adapter.attachListener(listener)
 
-        binding.imgActionBar.setOnClickListener(this)
-
-        // val recycle = binding.recyclerDispService
-        binding.recyclerDispCandidat.layoutManager = LinearLayoutManager(this)
-        binding.recyclerDispCandidat.adapter = adapter
-
         observe()
 
         supportActionBar?.hide()
@@ -62,13 +62,13 @@ class CandidatosEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
     // quando voltar a açao on resume e chamado
     override fun onResume() {
         super.onResume()
-        viewModel.listPerito()
+        viewModel.peritoCandidato()
     }
 
     override fun onClick(v: View) {
         if (v.id == R.id.img_action_bar) {
-            val perfil = Intent(this, PerfilPeritoActivity::class.java)
-            startActivity(perfil)
+            startActivity(Intent(this, PerfilPeritoActivity::class.java))
+            finish()
         }
     }
 

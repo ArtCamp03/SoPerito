@@ -111,7 +111,10 @@ class DataBaseConstants private constructor() {
     // dados de compartilhamento
     object BUNDLE{
         const val COD_PERITO = "codPerito"
+        const val COD_EMP = "codEmp"
         const val COD_CURRICULO = "cod_curriculo"
+        const val NOME_VAGA = "servico"
+        const val COD_VAGA = "cod_vaga"
     }
 
 }

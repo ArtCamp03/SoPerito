@@ -53,11 +53,10 @@
         android:id="@+id/text_nome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="12dp"
-        android:padding="4dp"
-        android:text="Nome:"
+        android:layout_marginStart="12dp"
+        android:text="Nome Fantasia:"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_dados_contato" />
@@ -66,71 +65,44 @@
         android:id="@+id/edit_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
         android:layout_marginEnd="12dp"
         android:background="@color/gold"
         android:inputType="textPersonName"
         android:textColorHint="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_nome"
-        app:layout_constraintTop_toBottomOf="@+id/text_dados_contato" />
-
-<!--
- <TextView
-        android:id="@+id/text_endereco"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="12dp"
-        android:text="Endereço:"
-        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_nome" />
-
-    <EditText
-        android:id="@+id/edit_endereco"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-        android:background="@color/gold"
-        android:inputType="text"
-        android:textColorHint="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_endereco"
-        app:layout_constraintTop_toBottomOf="@+id/edit_name" />
--->
 
     <TextView
         android:id="@+id/text_telefone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
-        android:padding="4dp"
+        android:layout_marginStart="12dp"
         android:text="Telefone:"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_nome" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_name" />
 
     <EditText
         android:id="@+id/edit_telefone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
         android:layout_marginEnd="12dp"
         android:background="@color/gold"
         android:inputType="phone"
         android:textColorHint="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_telefone"
-        app:layout_constraintTop_toBottomOf="@+id/edit_name" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_telefone" />
 
 
     <TextView
@@ -138,28 +110,28 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="4dp"
-        android:padding="4dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
         android:text="Email:"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/edit_email"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_telefone" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_telefone" />
 
     <EditText
         android:id="@+id/edit_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
         android:layout_marginEnd="12dp"
         android:background="@color/gold"
         android:inputType="text"
         android:textColorHint="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_email"
-        app:layout_constraintTop_toBottomOf="@+id/edit_telefone" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_email" />
 
     <Button
         android:id="@+id/btn_cancelar"

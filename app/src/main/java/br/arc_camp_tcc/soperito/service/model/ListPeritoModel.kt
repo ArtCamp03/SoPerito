@@ -1,6 +1,5 @@
 package br.arc_camp_tcc.soperito.service.model
 
-import androidx.room.ColumnInfo
 import com.google.gson.annotations.SerializedName
 
 class ListPeritoModel {
@@ -10,6 +9,9 @@ class ListPeritoModel {
 
     @SerializedName("cod_perito")
     var codPerito: Int = 0
+
+    @SerializedName("empregador")
+    var empregador: Int = 0
 
     @SerializedName("nome_perito")
     var nome: String = ""

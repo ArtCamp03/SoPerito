@@ -6,8 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.APIListener
-import br.arc_camp_tcc.soperito.service.model.ListPeritoModel
 import br.arc_camp_tcc.soperito.service.model.PeritoModel
+import br.arc_camp_tcc.soperito.service.model.UsuarioModel
 import br.arc_camp_tcc.soperito.service.model.ValidationModel
 import br.arc_camp_tcc.soperito.service.repository.ListPeritosRepository
 import br.arc_camp_tcc.soperito.service.repository.PeritoRepository
@@ -17,7 +17,6 @@ class PeritoViewModel(application: Application) : AndroidViewModel(application) 
 
     private val securityPreferences = SecurityPreferences(application.applicationContext)
     private val peritoRepository = PeritoRepository(application.applicationContext)
-    private val listPeritosRepository = ListPeritosRepository(application.applicationContext)
 
 
     private val _savePerito = MutableLiveData<ValidationModel>()
@@ -26,18 +25,16 @@ class PeritoViewModel(application: Application) : AndroidViewModel(application) 
     private val _loadPerito = MutableLiveData<ValidationModel>()
     val loadPerito: LiveData<ValidationModel> = _loadPerito
 
-    private val _loadCurriculoErr = MutableLiveData<ValidationModel>()
-    val loadCurriculoErr: LiveData<ValidationModel> = _loadCurriculoErr
+    private val _losdInfoSuccess = MutableLiveData<UsuarioModel>()
+    val losdInfoSuccess: LiveData<UsuarioModel> = _losdInfoSuccess
 
-    private val _loadCurriculoSuccess = MutableLiveData<ListPeritoModel>()
-    val loadCurriculoSuccess: LiveData<ListPeritoModel> = _loadCurriculoSuccess
-
-    private val _saveCurriculo = MutableLiveData<ValidationModel>()
-    val saveCurriculo: LiveData<ValidationModel> = _saveCurriculo
+    private val _losdInfoFail = MutableLiveData<String>()
+    val losdInfoFail: LiveData<String> = _losdInfoFail
 
     // verifica se usuario ja possui conta Perito
     private val getContUser = securityPreferences.get(DataBaseConstants.USER.COLUMNS.COD_USER).toInt()
     private val getContPerito = securityPreferences.get(DataBaseConstants.USER.COLUMNS.COD_PERITO).toInt()
+    private val getPerito = securityPreferences.get(DataBaseConstants.BUNDLE.COD_PERITO).toInt()
     private val getNomePerito = securityPreferences.get(DataBaseConstants.USER.COLUMNS.NOME)
     private val userPerito = 1
 
@@ -86,32 +83,16 @@ class PeritoViewModel(application: Application) : AndroidViewModel(application) 
     }
 
 
-    // CURRIUCLO
-
-    fun loadCurriuclo(codCurriculo: Int) {
-        listPeritosRepository.loadCurriculo(codCurriculo, object : APIListener<ListPeritoModel> {
-            override fun onSuccess(result: ListPeritoModel) {
-                _loadCurriculoSuccess.value = result
+    fun loadInfoCandiato() {
+        peritoRepository.loadInfoCandiato(getPerito, object : APIListener<UsuarioModel> {
+            override fun onSuccess(result: UsuarioModel) {
+                _losdInfoSuccess.value = result
             }
 
             override fun onFailure(message: String) {
-                _loadCurriculoErr.value = ValidationModel(message)
+                _losdInfoFail.value = message
             }
         })
-    }
-
-    fun saveCurriculo(service: String, temp: String, obs: String, valor: String, dataCurriculo: String) {
-        peritoRepository.saveCurriculo(getContPerito, getNomePerito, service, temp, obs,
-            valor, dataCurriculo, object : APIListener<Boolean> {
-                override fun onSuccess(result: Boolean) {
-                    _saveCurriculo.value = ValidationModel()
-                }
-
-                override fun onFailure(message: String) {
-                    _saveCurriculo.value = ValidationModel(message)
-                }
-
-            })
     }
 
     /*

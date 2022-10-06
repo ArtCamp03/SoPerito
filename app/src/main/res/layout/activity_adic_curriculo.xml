@@ -19,6 +19,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/text_data_curriculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="15/09/2022"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_titel_serv_disp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_action_bar" />
+
+    <TextView
         android:id="@+id/text_titel_serv_disp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,14 +39,14 @@
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_action_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/text_data_curriculo" />
 
     <TextView
         android:id="@+id/text_nome_vaga"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Serviço desejado:"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,60 +57,60 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@color/gold"
         android:inputType="text"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_nome_vaga"
-        app:layout_constraintTop_toBottomOf="@+id/text_titel_serv_disp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_nome_vaga" />
 
     <TextView
         android:id="@+id/text_temp_xp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="8dp"
         android:text="tempo de experiencia:"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_nome_vaga" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_nome_vaga" />
 
     <EditText
         android:id="@+id/edit_temp_xp"
-        android:layout_width="45dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@color/gold"
         android:inputType="number"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/text_temp_xp"
-        app:layout_constraintTop_toBottomOf="@+id/edit_nome_vaga" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_temp_xp" />
 
     <TextView
         android:id="@+id/text_descript_modo_servico"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Observaçao:"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_temp_xp" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_temp_xp" />
 
     <EditText
         android:id="@+id/edit_obs"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@color/gold"
         android:inputType="text"
-        android:padding="4dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +121,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Valor minimo:"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,16 +129,17 @@
 
     <EditText
         android:id="@+id/edit_valor_min"
-        android:layout_width="45dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@color/gold"
         android:inputType="number"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/text_valor_min"
-        app:layout_constraintTop_toBottomOf="@+id/edit_obs" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_valor_min" />
 
     <Button
         android:id="@+id/btn_cancelar_curriuclo"
@@ -154,15 +167,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_cancelar_curriuclo" />
 
-    <TextView
-        android:id="@+id/text_data_curriculo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="15/09/2022"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/btn_salvar_curriculo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_valor_min" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.APIListener
 import br.arc_camp_tcc.soperito.service.model.PeritoModel
+import br.arc_camp_tcc.soperito.service.model.UsuarioModel
 import br.arc_camp_tcc.soperito.service.repository.remote.PeritoService
 import br.arc_camp_tcc.soperito.service.repository.remote.RetrofitClient
 import retrofit2.Call
@@ -95,19 +96,11 @@ class PeritoRepository(context: Context) : BaseRepository(context) {
         })
     }
 
-    fun saveCurriculo(
-        codPerito: Int,
-        nome: String,
-        service: String,
-        temp: String,
-        obs: String,
-        valor: String,
-        dataCurriculo: String,
-        listener: APIListener<Boolean>
-    ) {
-        val call = remote.saveCurriculo(codPerito, nome, service, temp, obs, valor, dataCurriculo)
-        call.enqueue(object : Callback<Boolean> {
-            override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
+
+    fun loadInfoCandiato(codPerito: Int, listener: APIListener<UsuarioModel>) {
+        val call = remote.loadInfo(codPerito, null, null, null)
+        call.enqueue(object : Callback<UsuarioModel> {
+            override fun onResponse(call: Call<UsuarioModel>, response: Response<UsuarioModel>) {
                 if (response.code() == DataBaseConstants.HTTP.SUCCESS) {
                     response.body()?.let { listener.onSuccess((it)) }
                 } else {
@@ -115,10 +108,9 @@ class PeritoRepository(context: Context) : BaseRepository(context) {
                 }
             }
 
-            override fun onFailure(call: Call<Boolean>, t: Throwable) {
-                listener.onFailure(context.getString(R.string.erro_salvamento))
+            override fun onFailure(call: Call<UsuarioModel>, t: Throwable) {
+                listener.onFailure(context.getString(R.string.register_not_found))
             }
         })
     }
-
 }

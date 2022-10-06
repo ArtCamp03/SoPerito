@@ -10,18 +10,21 @@ import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityCurriculoPeritoBinding
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.view.empregador.MenuEmpregadorActivity
-import br.arc_camp_tcc.soperito.viewModel.PeritoViewModel
+import br.arc_camp_tcc.soperito.viewModel.ListPeritoViewModel
 
 class CurriculoPeritoActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityCurriculoPeritoBinding
-    private lateinit var viewModel : PeritoViewModel
+    private lateinit var viewModel : ListPeritoViewModel
+
+    private var codVCurriculo : Int = 0
+    private var codPerito : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // variaveis de classe
-        viewModel= ViewModelProvider(this).get(PeritoViewModel::class.java)
+        viewModel= ViewModelProvider(this).get(ListPeritoViewModel::class.java)
         binding = ActivityCurriculoPeritoBinding.inflate(layoutInflater)
 
         // eventos
@@ -40,7 +43,7 @@ class CurriculoPeritoActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         if(v.id == R.id.btn_aceitar_curriculo){
-
+            contratar()
         }else if(v.id == R.id.btn_recusar_currculo){
             startActivity(Intent(this, MenuEmpregadorActivity::class.java))
             finish()
@@ -66,10 +69,24 @@ class CurriculoPeritoActivity : AppCompatActivity(), View.OnClickListener {
             binding.texData.setText(it.dataCurriculo)
             binding.editEsp.setText(it.espec)
             binding.editExp.setText(it.exp)
+
+            // dados da vaga em questao
+            codVCurriculo = it.codCurriculo
+            codPerito = it.codPerito
         }
 
         viewModel.loadCurriculoErr.observe(this){
             if(!it.status()){
+                Toast.makeText(applicationContext, it.message(), Toast.LENGTH_LONG).show()
+            }
+        }
+
+        viewModel.contratarPerito.observe(this){
+            if(it.status()){
+                Toast.makeText(applicationContext, R.string.save, Toast.LENGTH_LONG).show()
+                startActivity(Intent(applicationContext, MenuEmpregadorActivity::class.java))
+                finish()
+            }else{
                 Toast.makeText(applicationContext, it.message(), Toast.LENGTH_LONG).show()
             }
         }
@@ -84,7 +101,10 @@ class CurriculoPeritoActivity : AppCompatActivity(), View.OnClickListener {
         }else{
             Toast.makeText(applicationContext, R.string.erro_inesperado, Toast.LENGTH_LONG).show()
         }
+    }
 
+    private fun contratar(){
+        viewModel.contratante(codVCurriculo, codPerito)
     }
 
 }

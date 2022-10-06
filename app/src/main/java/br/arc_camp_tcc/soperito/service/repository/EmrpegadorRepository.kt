@@ -5,6 +5,7 @@ import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.APIListener
 import br.arc_camp_tcc.soperito.service.model.EmpregadorModel
+import br.arc_camp_tcc.soperito.service.model.UsuarioModel
 import br.arc_camp_tcc.soperito.service.repository.remote.EmpregadorService
 import br.arc_camp_tcc.soperito.service.repository.remote.RetrofitClient
 import retrofit2.Call
@@ -64,6 +65,29 @@ class EmrpegadorRepository(context: Context): BaseRepository(context) {
             }
 
             override fun onFailure(call: Call<Boolean>, t: Throwable) {
+                listener.onFailure(context.getString(R.string.erro_conexao))
+            }
+
+        })
+    }
+
+
+
+    fun loadInfoVaga(codEmpregador: Int,listener: APIListener<UsuarioModel>){
+        val call = remote.loadInfoVaga(codEmpregador,null,null, null)
+        call.enqueue(object : Callback<UsuarioModel> {
+            override fun onResponse(
+                call: Call<UsuarioModel>,
+                response: Response<UsuarioModel>
+            ) {
+                if (response.code() == DataBaseConstants.HTTP.SUCCESS) {
+                    response.body()?.let { listener.onSuccess((it)) }
+                } else {
+                    listener.onFailure(context.getString(R.string.erro_conta_empregador))
+                }
+            }
+
+            override fun onFailure(call: Call<UsuarioModel>, t: Throwable) {
                 listener.onFailure(context.getString(R.string.erro_conexao))
             }
 

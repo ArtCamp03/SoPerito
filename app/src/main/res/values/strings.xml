@@ -23,6 +23,7 @@
 
     <!-- Portugues ERRORS-->
     <string name="save">Salvo !!</string>
+    <string name="alter_password">Senha alterada !!</string>
     <string name="valid_registre">Dados salvos com sucesso !!</string>
     <string name="update_invalid">Dados nao foram alterados !!</string>
     <string name="register_not_found">Dados nao foram encontrados !!</string>

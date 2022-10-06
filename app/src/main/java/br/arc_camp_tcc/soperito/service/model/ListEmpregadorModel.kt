@@ -4,25 +4,31 @@ import com.google.gson.annotations.SerializedName
 
 class ListEmpregadorModel {
 
-    @SerializedName("cod_curriculo")
-    var codCurriculo: Int = 0
+    @SerializedName("cod_vaga")
+    var codVaga: Int = 0
 
-    @SerializedName("cod_perito")
-    var codPerito: Int = 0
+    @SerializedName("cod_emp")
+    var codEmp: Int = 0
 
-    @SerializedName("nome_perito")
-    var nome: String = ""
+    @SerializedName("contratado")
+    var contratado: Int = 0
+
+    @SerializedName("nome_emp")
+    var nomeEmp: String = ""
 
     @SerializedName("servico")
     var servico: String = ""
 
-    @SerializedName("temp")
-    var temp: String = ""
+    @SerializedName("temp_exp")
+    var tempExp: String = ""
 
-    @SerializedName("obs")
-    var obs: String = ""
+    @SerializedName("disp_pagar")
+    var dispPagar: String = ""
 
-    @SerializedName("valor")
-    var valor: String = ""
+    @SerializedName("descricao")
+    var descricao: String = ""
+
+    @SerializedName("v_data")
+    var vData: String = ""
 
 }

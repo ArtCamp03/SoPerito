@@ -23,6 +23,8 @@ class BuscaPeritoActivity : AppCompatActivity(), View.OnClickListener {
 
     private val adapter = PeritoAdapter()
 
+    private var pesquisa : String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -64,15 +66,15 @@ class BuscaPeritoActivity : AppCompatActivity(), View.OnClickListener {
     // quando voltar a açao on resume e chamado
     override fun onResume() {
         super.onResume()
-        viewModel.listPerito()
+        viewModel.buscPerito(pesquisa)
     }
 
     override fun onClick(v: View) {
         if (v.id == R.id.btn_search) {
             buscar()
         } else if (v.id == R.id.img_action_bar) {
-            val perfil = Intent(this, PerfilPeritoActivity::class.java)
-            startActivity(perfil)
+            startActivity(Intent(this, PerfilPeritoActivity::class.java))
+            finish()
         }
     }
 
@@ -87,7 +89,8 @@ class BuscaPeritoActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun buscar(){
-        var pesquisa = binding.editBarraSearch.text.toString()
+        pesquisa = binding.editBarraSearch.text.toString()
+        onResume()
     }
 
 }

@@ -1,6 +1,7 @@
 package br.arc_camp_tcc.soperito.service.repository.remote
 
 import br.arc_camp_tcc.soperito.service.model.EmpregadorModel
+import br.arc_camp_tcc.soperito.service.model.UsuarioModel
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -39,4 +40,13 @@ interface EmpregadorService {
         @Field("telefone") telefone: String?,
     ): Call<Boolean>
 
+
+    @POST("perito/contratante/info_contratante/load_info.php")
+    @FormUrlEncoded
+    fun loadInfoVaga(
+        @Field("cod_emp") codEmp: Int,
+        @Field("nome") nome: String?,
+        @Field("email") email: String?,
+        @Field("telefone") telefone: String?
+    ): Call<UsuarioModel>
 }

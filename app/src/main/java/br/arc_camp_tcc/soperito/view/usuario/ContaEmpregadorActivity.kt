@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityContaEmpregadorBinding
+import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.view.empregador.MenuEmpregadorActivity
 import br.arc_camp_tcc.soperito.viewModel.EmpregadorViewModel
 

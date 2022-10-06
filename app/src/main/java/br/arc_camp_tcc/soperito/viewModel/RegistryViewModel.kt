@@ -8,12 +8,10 @@ import br.arc_camp_tcc.soperito.service.listeners.APIListener
 import br.arc_camp_tcc.soperito.service.model.UsuarioModel
 import br.arc_camp_tcc.soperito.service.model.ValidationModel
 import br.arc_camp_tcc.soperito.service.repository.RegistryRepository
-import br.arc_camp_tcc.soperito.service.repository.SecurityPreferences
 
 class RegistryViewModel(application: Application): AndroidViewModel(application) {
 
     private val registerRepository = RegistryRepository(application.applicationContext)
-    private val securityPreferences = SecurityPreferences(application.applicationContext)
 
     private val _registryUser = MutableLiveData<ValidationModel>()
     val registryUser: LiveData<ValidationModel> = _registryUser

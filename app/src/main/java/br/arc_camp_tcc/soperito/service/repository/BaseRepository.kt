@@ -37,7 +37,7 @@ open class BaseRepository(val context: Context) {
             }
 
             override fun onFailure(call: Call<T>, t: Throwable) {
-                listener.onFailure(context.getString(R.string.erro_conexao))
+                listener.onFailure(context.getString(R.string.register_not_found))
             }
         })
     }

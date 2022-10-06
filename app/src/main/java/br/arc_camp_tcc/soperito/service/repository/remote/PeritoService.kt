@@ -1,6 +1,7 @@
 package br.arc_camp_tcc.soperito.service.repository.remote
 
 import br.arc_camp_tcc.soperito.service.model.PeritoModel
+import br.arc_camp_tcc.soperito.service.model.UsuarioModel
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -43,16 +44,14 @@ interface PeritoService {
         @Field("espec") espec: String?
     ): Call<PeritoModel>
 
-    @POST("perito/curriculo/save_curriculo/save_curriculo.php")
+
+    @POST("empregador/candidatos/info_candidato/load_info.php")
     @FormUrlEncoded
-    fun saveCurriculo(
+    fun loadInfo(
         @Field("cod_perito") codPerito: Int,
-        @Field("nome_perito") nome: String?,
-        @Field("servico") servico: String?,
-        @Field("temp") temp: String?,
-        @Field("obs") obs: String?,
-        @Field("valor") valor: String?,
-        @Field("data_curriculo") dataCurriculo: String
-    ): Call<Boolean>
+        @Field("nome") nome: String?,
+        @Field("email") email: String?,
+        @Field("telefone") telefone: String?
+    ): Call<UsuarioModel>
 
 }

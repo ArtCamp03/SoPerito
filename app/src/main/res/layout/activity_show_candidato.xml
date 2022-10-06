@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/marrom"
-    tools:context=".view.empregador.AdicVagaActivity">
+    tools:context=".ShowCandidatoActivity">
+
 
     <ImageView
         android:id="@+id/img_action_bar"
@@ -19,41 +20,38 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_titel_adc_vaga"
+        android:id="@+id/text_titel_curriculo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="86dp"
         android:layout_marginTop="18dp"
-        android:layout_marginStart="48dp"
-        android:text="Adicionar Vaga:"
+        android:text="Curriculo"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/tex_data"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_action_bar" />
+        app:layout_constraintTop_toBottomOf="@id/img_action_bar" />
 
     <TextView
         android:id="@+id/text_nome_vaga"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Vaga para:"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:text="Serviço desejado:"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_titel_adc_vaga" />
+        app:layout_constraintTop_toBottomOf="@+id/text_titel_curriculo" />
 
-    <EditText
+    <TextView
         android:id="@+id/edit_nome_vaga"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:inputType="none"
+        android:textColor="@color/gold"
         android:textSize="18sp"
-        android:background="@color/gold"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_nome_vaga" />
@@ -63,124 +61,148 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="12dp"
-        android:text="tempo min de experiencia:"
+        android:layout_marginTop="16dp"
+        android:text="tempo de experiencia:"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_nome_vaga" />
 
-    <EditText
+    <TextView
         android:id="@+id/edit_temp_xp"
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:layout_marginStart="26dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:inputType="number"
+        android:textColor="@color/gold"
         android:textSize="18sp"
-        android:background="@color/gold"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_temp_xp" />
+
+    <TextView
+        android:id="@+id/text_descript_modo_servico"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Observaçao:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_temp_xp" />
+
+    <TextView
+        android:id="@+id/edit_descript_modo_servico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/gold"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_descript_modo_servico" />
 
     <TextView
         android:id="@+id/text_valor_min"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="12dp"
-        android:text="Valor min para pagamento:"
+        android:layout_marginTop="16dp"
+        android:text="Valor minimo:"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_temp_xp" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_descript_modo_servico" />
 
-    <EditText
+    <TextView
         android:id="@+id/edit_valor_min"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:inputType="number"
+        android:textColor="@color/gold"
         android:textSize="18sp"
-        android:background="@color/gold"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_valor_min" />
 
+
     <TextView
-        android:id="@+id/text_descript_vaga"
+        android:id="@+id/text_exp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="12dp"
-        android:text="descriçao da vaga:"
+        android:layout_marginTop="16dp"
+        android:text="Experiencia:"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_valor_min" />
 
-    <EditText
-        android:id="@+id/edit_descricao"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="26dp"
+    <TextView
+        android:id="@+id/edit_exp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:inputType="text"
+        android:textColor="@color/gold"
         android:textSize="18sp"
-        android:background="@color/gold"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_descript_vaga" />
+        app:layout_constraintTop_toBottomOf="@+id/text_exp" />
+
+
+    <TextView
+        android:id="@+id/text_esp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Especialidade:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_exp" />
+
+    <TextView
+        android:id="@+id/edit_esp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/gold"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_esp" />
+
+
+    <Button
+        android:id="@+id/btn_info_candidato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/black"
+        android:text="informaçoes"
+        android:textAllCaps="true"
+        android:textColor="@color/gold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tex_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="15/09/2022"
-        android:textSize="22sp"
-        android:textColor="@color/black"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginStart="72dp"
         android:layout_marginTop="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/text_titel_adc_vaga"
-        app:layout_constraintTop_toBottomOf="@id/img_action_bar"
-        />
-
-    <Button
-        android:id="@+id/btn_cancelar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/gold"
-        android:text="cancelar"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_salvar"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btn_salvar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/black"
-        android:text="salvar"
-        android:textAllCaps="true"
+        android:text="15/09/2022"
         android:textColor="@color/gold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_cancelar" />
+        app:layout_constraintStart_toEndOf="@id/text_titel_curriculo"
+        app:layout_constraintTop_toBottomOf="@id/img_action_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

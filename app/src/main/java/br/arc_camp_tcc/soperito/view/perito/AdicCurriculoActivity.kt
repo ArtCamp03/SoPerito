@@ -9,14 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityAdicCurriculoBinding
-import br.arc_camp_tcc.soperito.viewModel.PeritoViewModel
+import br.arc_camp_tcc.soperito.service.model.ListPeritoModel
+import br.arc_camp_tcc.soperito.viewModel.ListPeritoViewModel
 import java.util.*
 
 class AdicCurriculoActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityAdicCurriculoBinding
-    private lateinit var viewModel : PeritoViewModel
+    private lateinit var viewModel : ListPeritoViewModel
 
+    // busca data no sistema
     private val date = Calendar.getInstance().time
     private val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
     private val dataModf = dateTimeFormat.format(date)
@@ -28,7 +30,7 @@ class AdicCurriculoActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityAdicCurriculoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this).get(PeritoViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ListPeritoViewModel::class.java)
 
         binding.imgActionBar.setOnClickListener(this)
         binding.btnSalvarCurriculo.setOnClickListener(this)
@@ -63,13 +65,18 @@ class AdicCurriculoActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun saveCurriculo(){
-        val servico = binding.editNomeVaga.text.toString()
-        val temp = binding.editTempXp.text.toString()
-        val obs = binding.editObs.text.toString()
-        val valor = binding.editValorMin.text.toString()
 
-        if(servico != "" && temp != "" && obs != "" && valor != ""){
-            viewModel.saveCurriculo(servico, temp, obs, valor,dataModf)
+        val curriculo = ListPeritoModel().apply {
+            this.servico = binding.editNomeVaga.text.toString()
+            this.temp = binding.editTempXp.text.toString()
+            this.obs = binding.editObs.text.toString()
+            this.valor  = binding.editValorMin.text.toString()
+            this.dataCurriculo  = dataModf.toString()
+        }
+
+
+        if(curriculo.servico != "" && curriculo.temp != "" && curriculo.obs != "" && curriculo.valor != ""){
+            viewModel.saveCurriculo(curriculo)
         }else {
             Toast.makeText(applicationContext, R.string.invalid_registre, Toast.LENGTH_SHORT)
         }

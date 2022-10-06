@@ -69,13 +69,14 @@
 
     <TextView
         android:id="@+id/edit_temp_xp"
-        android:layout_width="56dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textColor="@color/gold"
         android:layout_marginTop="8dp"
         android:layout_marginStart="56dp"
         android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_temp_xp" />
 
@@ -116,13 +117,14 @@
 
     <TextView
         android:id="@+id/edit_valor_min"
-        android:layout_width="56dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textColor="@color/gold"
         android:layout_marginTop="8dp"
         android:layout_marginStart="56dp"
         android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_valor_min" />
 

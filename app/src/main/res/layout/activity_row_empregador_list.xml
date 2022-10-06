@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="6dp"
     tools:context=".RowEmpregadorList">
 
     <RelativeLayout
@@ -19,6 +20,7 @@
             android:id="@+id/text_icon_empregador"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/circule"
             android:gravity="center"
             android:text="A"
