@@ -5,8 +5,8 @@ import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.APIListener
 import br.arc_camp_tcc.soperito.service.model.UsuarioModel
-import br.arc_camp_tcc.soperito.service.repository.remote.RetrofitClient
-import br.arc_camp_tcc.soperito.service.repository.remote.UsuarioService
+import br.arc_camp_tcc.soperito.service.repository.remote.api.RetrofitClient
+import br.arc_camp_tcc.soperito.service.repository.remote.api.UsuarioService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,7 +18,7 @@ class UsuarioRepository(context: Context): BaseRepository(context) {
     // chama dados de usuario da API
     fun loadUser(codUuario: Int, listener: APIListener<UsuarioModel>) {
         val call = remote.load(codUuario,null, null, null, null, null, null
-        , null, null, null)
+        , null, null, null, null, null)
         call.enqueue(object : Callback<UsuarioModel> {
             override fun onResponse(call: Call<UsuarioModel>, response: Response<UsuarioModel>) {
                 if (response.code() == DataBaseConstants.HTTP.SUCCESS) {

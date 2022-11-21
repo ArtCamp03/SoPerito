@@ -1,4 +1,4 @@
-package br.arc_camp_tcc.soperito
+package br.arc_camp_tcc.soperito.view.perito
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityShowContratanteBinding
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.viewModel.ListEmpregadorViewModel
@@ -58,7 +59,8 @@ class ShowContratanteActivity : AppCompatActivity(), View.OnClickListener {
         val bundle =  intent.extras
         if(bundle != null){
             val codCurriuyclo = bundle.getInt(DataBaseConstants.BUNDLE.COD_VAGA)
-            viewModel.loadVaga(codCurriuyclo)
+            //viewModel.loadVaga(codCurriuyclo)
+            viewModel.loadVagaFireB(codCurriuyclo)
         }else{
             Toast.makeText(applicationContext, R.string.erro_inesperado, Toast.LENGTH_LONG).show()
         }

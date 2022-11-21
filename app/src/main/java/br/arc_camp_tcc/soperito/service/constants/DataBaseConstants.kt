@@ -16,7 +16,10 @@ class DataBaseConstants private constructor() {
             const val NOME = "nome"
             const val CPF = "cpf"
             const val TELEFONE = "telefone"
+            const val CIDADE = "cidade"
+            const val ESTADO = "estado"
             const val SENHA = "senha"
+
         }
     }
 
@@ -26,6 +29,7 @@ class DataBaseConstants private constructor() {
         object COLUMNS {
             const val COD_PERITO = "codPerito"
             const val COD_USER = "codigUsuario"
+            const val COD_CURRICULO = "codCurriculo"
             const val USER_PERITO = "userPerito"
             const val NOME = "nome"
             const val EXP = "exp"
@@ -46,6 +50,7 @@ class DataBaseConstants private constructor() {
             const val OBS = "obs"
             const val VALOR = "valor"
             const val DATA = "dataCurriculo"
+            const val LOCAL = "local"
         }
 
     }
@@ -73,19 +78,16 @@ class DataBaseConstants private constructor() {
 
     }
 
-    object TRANSACAO{
-        const val TABLE_NAME = "transacoes"
+
+    object CANDIDATOS{
+            const val TABLE_NAME = "candidatos"
 
         object COLUMNS {
-            const val COD_TRANSAC = "codTransc"
-            const val COD_PERITO = "codPerito"
+            const val COD_CANDIDATO = "codCandidato"
             const val COD_EMP = "codEmp"
-            const val NOME_EMP = "nomeEmp"
-            const val NOME_PERITO = "nomePerito"
-            const val STATUS_EMP = "statusEmp"
-            const val STATUS_PERITO = "statusPerito"
-            const val NUM_EMP = "numEmp"
-            const val NUM_PERITO = "numPerito"
+            const val COD_VAGA = "codVaga"
+            const val COD_PERITO = "codPerito"
+            const val STATUS_CAND = "statusCand"
         }
 
     }

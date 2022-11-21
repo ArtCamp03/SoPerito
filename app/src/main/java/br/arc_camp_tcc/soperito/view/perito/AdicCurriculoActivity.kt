@@ -10,13 +10,17 @@ import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityAdicCurriculoBinding
 import br.arc_camp_tcc.soperito.service.model.ListPeritoModel
-import br.arc_camp_tcc.soperito.viewModel.ListPeritoViewModel
+import br.arc_camp_tcc.soperito.view.Controlador
+import br.arc_camp_tcc.soperito.viewModel.CurriculosViewModel
 import java.util.*
 
 class AdicCurriculoActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityAdicCurriculoBinding
-    private lateinit var viewModel : ListPeritoViewModel
+    private lateinit var viewModel : CurriculosViewModel
+
+
+    private lateinit var controlaDados:Controlador
 
     // busca data no sistema
     private val date = Calendar.getInstance().time
@@ -30,13 +34,15 @@ class AdicCurriculoActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityAdicCurriculoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this).get(ListPeritoViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(CurriculosViewModel::class.java)
 
         binding.imgActionBar.setOnClickListener(this)
         binding.btnSalvarCurriculo.setOnClickListener(this)
         binding.btnCancelarCurriuclo.setOnClickListener(this)
 
         binding.textDataCurriculo.setText(dataModf)
+
+        controlaDados = Controlador()
 
         observe()
 
@@ -67,6 +73,7 @@ class AdicCurriculoActivity : AppCompatActivity(), View.OnClickListener {
     private fun saveCurriculo(){
 
         val curriculo = ListPeritoModel().apply {
+
             this.servico = binding.editNomeVaga.text.toString()
             this.temp = binding.editTempXp.text.toString()
             this.obs = binding.editObs.text.toString()
@@ -74,11 +81,14 @@ class AdicCurriculoActivity : AppCompatActivity(), View.OnClickListener {
             this.dataCurriculo  = dataModf.toString()
         }
 
-
-        if(curriculo.servico != "" && curriculo.temp != "" && curriculo.obs != "" && curriculo.valor != ""){
-            viewModel.saveCurriculo(curriculo)
+        if(!curriculo.servico.trim().isEmpty() && !curriculo.temp.trim().isEmpty() && !curriculo.obs.trim().isEmpty() && !curriculo.valor.trim().isEmpty()){
+            if(controlaDados.firebase){
+                viewModel.saveCurriculoFireB(curriculo)
+            }else if(controlaDados.api){
+                //viewModel.saveCurriculo(curriculo)
+            }
         }else {
-            Toast.makeText(applicationContext, R.string.invalid_registre, Toast.LENGTH_SHORT)
+            Toast.makeText(applicationContext, R.string.invalid_registre, Toast.LENGTH_LONG)
         }
     }
 

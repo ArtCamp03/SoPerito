@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/marrom"
-    tools:context=".InfoCandidatoActivity">
+    tools:context=".view.empregador.InfoCandidatoActivity">
 
     <ImageView
         android:id="@+id/img_action_bar"

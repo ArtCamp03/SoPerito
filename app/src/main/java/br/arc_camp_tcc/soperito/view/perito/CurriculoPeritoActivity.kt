@@ -9,27 +9,33 @@ import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityCurriculoPeritoBinding
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
+import br.arc_camp_tcc.soperito.view.Controlador
 import br.arc_camp_tcc.soperito.view.empregador.MenuEmpregadorActivity
-import br.arc_camp_tcc.soperito.viewModel.ListPeritoViewModel
+import br.arc_camp_tcc.soperito.viewModel.CurriculosViewModel
 
 class CurriculoPeritoActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityCurriculoPeritoBinding
-    private lateinit var viewModel : ListPeritoViewModel
+    private lateinit var viewModel : CurriculosViewModel
 
     private var codVCurriculo : Int = 0
     private var codPerito : Int = 0
+
+    // gerencia entre API e firebase
+    private lateinit var controlaDados: Controlador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // variaveis de classe
-        viewModel= ViewModelProvider(this).get(ListPeritoViewModel::class.java)
+        viewModel= ViewModelProvider(this).get(CurriculosViewModel::class.java)
         binding = ActivityCurriculoPeritoBinding.inflate(layoutInflater)
 
         // eventos
         binding.btnAceitarCurriculo.setOnClickListener(this)
         binding.btnRecusarCurrculo.setOnClickListener(this)
+
+        controlaDados = Controlador()
 
         loadData()
 
@@ -95,16 +101,25 @@ class CurriculoPeritoActivity : AppCompatActivity(), View.OnClickListener {
     private fun loadData(){
         val bundle =  intent.extras
         if(bundle != null){
-          //  val codPerito = bundle.getInt(DataBaseConstants.BUNDLE.COD_PERITO).toInt()
-            val codCurriuyclo = bundle.getInt(DataBaseConstants.BUNDLE.COD_CURRICULO)
-            viewModel.loadCurriuclo(codCurriuyclo)
+           // val codPerito = bundle.getInt(DataBaseConstants.BUNDLE.COD_PERITO).toInt()
+            val codCurriculo = bundle.getInt(DataBaseConstants.BUNDLE.COD_CURRICULO)
+            if(controlaDados.firebase){
+                viewModel.loadCurriucloFireB(codCurriculo)
+            }else if(controlaDados.api){
+                //viewModel.loadCurriuclo(codCurriculo)
+            }
         }else{
             Toast.makeText(applicationContext, R.string.erro_inesperado, Toast.LENGTH_LONG).show()
         }
     }
 
     private fun contratar(){
-        viewModel.contratante(codVCurriculo, codPerito)
+        if(controlaDados.firebase){
+            viewModel.contratanteFireB(codVCurriculo, codPerito)
+        }else if(controlaDados.api) {
+            //viewModel.contratanteFireB(codVCurriculo, codPerito)
+        }
+
     }
 
 }

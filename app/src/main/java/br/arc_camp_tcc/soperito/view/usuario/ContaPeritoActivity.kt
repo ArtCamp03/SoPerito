@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityContaPeritoBinding
-import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
+import br.arc_camp_tcc.soperito.view.Controlador
 import br.arc_camp_tcc.soperito.view.perito.MenuPeritoActivity
 import br.arc_camp_tcc.soperito.viewModel.PeritoViewModel
 
@@ -17,6 +17,8 @@ class ContaPeritoActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityContaPeritoBinding
     private lateinit var viewModel: PeritoViewModel
 
+    // gerencia entre API e firebase
+    private lateinit var controlaDados: Controlador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,8 @@ class ContaPeritoActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnCancel.setOnClickListener(this)
 
         observe()
+
+        controlaDados = Controlador()
 
         supportActionBar?.hide()
     }
@@ -47,8 +51,8 @@ class ContaPeritoActivity : AppCompatActivity(), View.OnClickListener {
         viewModel.savePerito.observe(this) {
             if (it.status()) {
                 Toast.makeText(applicationContext, R.string.valid_registre, Toast.LENGTH_LONG).show()
-                startActivity(Intent(applicationContext, MenuPeritoActivity::class.java))
                 finish()
+                startActivity(Intent(applicationContext, MenuPeritoActivity::class.java))
             } else {
                 Toast.makeText(applicationContext, it.message(), Toast.LENGTH_SHORT).show()
             }
@@ -56,7 +60,12 @@ class ContaPeritoActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun criaPerito() {
-        viewModel.criaPerito()
+        if(controlaDados.firebase){
+           viewModel.contaPeritoFireb()
+        }else if(controlaDados.api){
+           // viewModel.criaPerito()
+        }
+
     }
 
 }

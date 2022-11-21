@@ -17,12 +17,6 @@ class PeritoViewHolder(private val itemBinding: ActivityRowPeritoListBinding, va
 
             itemBinding.textData.text = listPerito.dataCurriculo
 
-            /*
-            itemBinding.textIconPerito.setOnClickListener() {
-                listener.onlistClick(listPerito.codCurriculo)
-            }
-             */
-
             itemBinding.relativePerito.setOnClickListener {
                 listener.onlistClick(listPerito.codCurriculo)
             }

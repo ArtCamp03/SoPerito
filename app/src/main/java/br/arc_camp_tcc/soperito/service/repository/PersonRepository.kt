@@ -5,8 +5,8 @@ import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.APIListener
 import br.arc_camp_tcc.soperito.service.model.Person.PersonLoginModel
-import br.arc_camp_tcc.soperito.service.repository.remote.PersonService
-import br.arc_camp_tcc.soperito.service.repository.remote.RetrofitClient
+import br.arc_camp_tcc.soperito.service.repository.remote.api.PersonService
+import br.arc_camp_tcc.soperito.service.repository.remote.api.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,7 +27,6 @@ class PersonRepository(context: Context): BaseRepository(context) {
                     response.body()?.let { listener.onSuccess((it)) }
                 } else {
                     listener.onFailure(context.getString(R.string.erro_login))
-                    //listener.onFailure(failResponse(response.errorBody()!!.string()))
                 }
             }
 
@@ -38,5 +37,6 @@ class PersonRepository(context: Context): BaseRepository(context) {
         })
 
     }
+
 
 }

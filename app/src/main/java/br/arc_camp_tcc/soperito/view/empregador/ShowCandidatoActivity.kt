@@ -1,4 +1,4 @@
-package br.arc_camp_tcc.soperito
+package br.arc_camp_tcc.soperito.view.empregador
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,14 +6,18 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityShowCandidatoBinding
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
-import br.arc_camp_tcc.soperito.viewModel.ListPeritoViewModel
+import br.arc_camp_tcc.soperito.viewModel.CurriculosViewModel
 
 class ShowCandidatoActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityShowCandidatoBinding
-    private lateinit var viewModel : ListPeritoViewModel
+    private lateinit var viewModel : CurriculosViewModel
+
+    // atualiza codperito
+  //  private var lerDados = LerDados(application)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +25,7 @@ class ShowCandidatoActivity : AppCompatActivity(), View.OnClickListener {
         // variaveis de classe
         binding = ActivityShowCandidatoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel= ViewModelProvider(this).get(ListPeritoViewModel::class.java)
+        viewModel= ViewModelProvider(this).get(CurriculosViewModel::class.java)
 
         // eventos
         binding.btnInfoCandidato.setOnClickListener(this)
@@ -61,10 +65,13 @@ class ShowCandidatoActivity : AppCompatActivity(), View.OnClickListener {
     private fun loadData(){
         val bundle =  intent.extras
         if(bundle != null){
-            val codCurriuyclo = bundle.getInt(DataBaseConstants.BUNDLE.COD_CURRICULO)
-            viewModel.loadCurriuclo(codCurriuyclo)
+            val codPerito = bundle.getInt(DataBaseConstants.BUNDLE.COD_PERITO)
+            val codCurriculo = bundle.getInt(DataBaseConstants.BUNDLE.COD_CURRICULO).toInt()
+           // lerDados.getPeritoCod = codPerito.toString()
+            viewModel.loadCurriucloFireB(codCurriculo)
         }else{
             Toast.makeText(applicationContext, R.string.erro_inesperado, Toast.LENGTH_LONG).show()
         }
     }
+
 }

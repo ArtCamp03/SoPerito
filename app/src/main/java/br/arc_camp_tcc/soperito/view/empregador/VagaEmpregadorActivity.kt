@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityVagaEmpregadorBinding
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
+import br.arc_camp_tcc.soperito.view.Controlador
 import br.arc_camp_tcc.soperito.view.perito.MenuPeritoActivity
 import br.arc_camp_tcc.soperito.viewModel.ListEmpregadorViewModel
 
@@ -16,6 +17,9 @@ class VagaEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityVagaEmpregadorBinding
     private lateinit var viewModel: ListEmpregadorViewModel
+
+    // gerencia entre API e firebase
+    private lateinit var controlaDados: Controlador
 
      private var codVaga : Int = 0
      private var codEmp : Int = 0
@@ -29,6 +33,8 @@ class VagaEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.btnCandidatar.setOnClickListener(this)
         binding.btnRecusar.setOnClickListener(this)
+
+        controlaDados = Controlador()
 
         loadData()
 
@@ -53,7 +59,11 @@ class VagaEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
         val bundle =  intent.extras
         if(bundle != null){
             val codVaga = bundle.getInt(DataBaseConstants.BUNDLE.COD_VAGA)
-            viewModel.loadVaga(codVaga)
+            if(controlaDados.firebase){
+                viewModel.loadVagaFireB(codVaga)
+            }else if(controlaDados.api) {
+                // viewModel.loadVaga(codVaga)
+            }
         }else{
             Toast.makeText(applicationContext, R.string.erro_inesperado, Toast.LENGTH_LONG).show()
         }
@@ -101,7 +111,11 @@ class VagaEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private fun candidatar(){
-        viewModel.candidato(codVaga, codEmp)
+        if(controlaDados.firebase){
+            viewModel.candidatoFireB(codVaga, codEmp)
+        }else if(controlaDados.api) {
+            // viewModel.candidato(codVaga, codEmp)
+        }
     }
 
 

@@ -61,7 +61,7 @@ class ServicoDisponiveisActivity : AppCompatActivity(), View.OnClickListener {
     // quando voltar a açao on resume e chamado
     override fun onResume() {
         super.onResume()
-        viewModel.listEmpregador()
+        viewModel.listEmpregadorFireB()
     }
 
     override fun onClick(v: View) {
@@ -70,7 +70,6 @@ class ServicoDisponiveisActivity : AppCompatActivity(), View.OnClickListener {
             finish()
         }
     }
-
 
     private fun observe() {
         viewModel.listEmpregador.observe(this) {

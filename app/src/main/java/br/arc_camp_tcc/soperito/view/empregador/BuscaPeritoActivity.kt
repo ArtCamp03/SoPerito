@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityBuscaPeritoBinding
+import br.arc_camp_tcc.soperito.progressBar.DialogProgress
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.PeritoListener
 import br.arc_camp_tcc.soperito.view.adapter.PeritoAdapter
@@ -65,8 +66,8 @@ class BuscaPeritoActivity : AppCompatActivity(), View.OnClickListener {
 
     // quando voltar a açao on resume e chamado
     override fun onResume() {
-        super.onResume()
-        viewModel.buscPerito(pesquisa)
+       super.onResume()
+       viewModel.buscPeritoFireB(pesquisa)
     }
 
     override fun onClick(v: View) {
@@ -79,11 +80,15 @@ class BuscaPeritoActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun observe() {
+        val dialogProgress = DialogProgress(this)
+        dialogProgress.startLoading()
+
         viewModel.listPerito.observe(this) {
+            dialogProgress.isDismiss()
             adapter.updatePeritos(it)
         }
-
         viewModel.listFailure.observe(this) {
+            dialogProgress.isDismiss()
             Toast.makeText(applicationContext, it, Toast.LENGTH_LONG).show()
         }
     }

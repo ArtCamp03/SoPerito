@@ -28,13 +28,24 @@ class ListPeritoModel {
     @SerializedName("valor")
     var valor: String = ""
 
+    @SerializedName("localizacao")
+    var localizacao: String = ""
+
     @SerializedName("data_curriculo")
     var dataCurriculo: String = ""
 
     @SerializedName("exp")
     var exp: String = ""
 
+    @SerializedName("cidade")
+    var cidade: String = ""
+
+    @SerializedName("estado")
+    var estado: String = ""
+
     @SerializedName("espec")
     var espec: String = ""
+
+    var statusCand: Int = 0
 
 }

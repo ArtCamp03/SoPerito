@@ -1,4 +1,4 @@
-package br.arc_camp_tcc.soperito
+package br.arc_camp_tcc.soperito.view.perito
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityInfoContratanteBinding
-import br.arc_camp_tcc.soperito.view.perito.MenuPeritoActivity
 import br.arc_camp_tcc.soperito.viewModel.EmpregadorViewModel
 
 class InfoContratanteActivity : AppCompatActivity(), View.OnClickListener {
@@ -50,6 +50,7 @@ class InfoContratanteActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun loadData(){
-        viewModel.loadInfoVaga()
+        //viewModel.loadInfoVaga()
+        viewModel.loadInfoVagaFireB()
     }
 }

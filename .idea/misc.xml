@@ -20,7 +20,7 @@
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/drawable/side_nav_bar.xml" value="0.119" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.10119840213049268" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout-w936dp/activity_login.xml" value="0.11875" />
-        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_adic_curriculo.xml" value="0.25" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_adic_curriculo.xml" value="0.22" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_adic_vaga.xml" value="0.2" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_busca_perito.xml" value="0.15833333333333333" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_busca_servico_perito.xml" value="0.15833333333333333" />
@@ -29,6 +29,7 @@
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_conta_perito.xml" value="0.22" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_contato_servico.xml" value="0.15833333333333333" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_curriculo_perito.xml" value="0.25" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_dialog_progress.xml" value="0.15833333333333333" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_edit_perfil.xml" value="0.18" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_edit_perfil_empregador.xml" value="0.22" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_edit_perfil_perito.xml" value="0.25" />
@@ -52,7 +53,7 @@
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_perito_model.xml" value="0.15833333333333333" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_peritos_disponiveis.xml" value="0.16" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_profile_choice.xml" value="0.15833333333333333" />
-        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_registration.xml" value="0.18" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_registration.xml" value="0.25" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_row_empregador_list.xml" value="0.22" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_row_perito_list.xml" value="0.22" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/activity_seguranca_config.xml" value="0.15833333333333333" />
@@ -71,6 +72,7 @@
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/layout/nav_header_main.xml" value="0.22" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/menu/activity_main_drawer.xml" value="0.33" />
         <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/menu/main.xml" value="0.25" />
+        <entry key="..\:/Users/artur/Documents/MyProjects/SoPerito/app/src/main/res/xml/provider.xml" value="0.15833333333333333" />
       </map>
     </option>
   </component>

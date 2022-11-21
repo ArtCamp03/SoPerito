@@ -6,8 +6,8 @@ import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.APIListener
 import br.arc_camp_tcc.soperito.service.model.EmpregadorModel
 import br.arc_camp_tcc.soperito.service.model.UsuarioModel
-import br.arc_camp_tcc.soperito.service.repository.remote.EmpregadorService
-import br.arc_camp_tcc.soperito.service.repository.remote.RetrofitClient
+import br.arc_camp_tcc.soperito.service.repository.remote.api.EmpregadorService
+import br.arc_camp_tcc.soperito.service.repository.remote.api.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -10,11 +10,14 @@ import br.arc_camp_tcc.soperito.service.model.Person.PersonLoginModel
 import br.arc_camp_tcc.soperito.service.model.ValidationModel
 import br.arc_camp_tcc.soperito.service.repository.PersonRepository
 import br.arc_camp_tcc.soperito.service.repository.SecurityPreferences
-import br.arc_camp_tcc.soperito.service.repository.remote.RetrofitClient
+import br.arc_camp_tcc.soperito.service.repository.remote.api.RetrofitClient
+import br.arc_camp_tcc.soperito.service.repository.remote.firebase.FirebaseClient
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     private val personRepository = PersonRepository(application.applicationContext)
+    private val personFirebaseAuth = FirebaseClient(application.applicationContext)
     private val securityPreferences = SecurityPreferences(application.applicationContext)
 
     private val _login = MutableLiveData<ValidationModel>()
@@ -44,20 +47,49 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         })
     }
 
-    /*
-        Verifica se o usuario esta logado
-     */
+    //  Verifica se o usuario esta logado
+    fun verifyLoggedUser(auth:FirebaseAuth){
 
-    fun verifyLoggedUser(){
         val email = securityPreferences.get(DataBaseConstants.SHARED.PERSON_KEY)
         val senha = securityPreferences.get(DataBaseConstants.SHARED.TOKEN_KEY)
 
         // atualiza o headers
         RetrofitClient.addHeaders(email, senha)
 
-        val logged = (email != "" && senha != "")
-        _loggedUser.value = logged
+        val user = auth?.currentUser
+
+        if(user != null){
+            _loggedUser.value = true
+        }else{
+            val logged = (email != "" && senha != "")
+            _loggedUser.value = logged
+        }
 
     }
+
+    /*
+    fun loginUsuario(email:String,senha:String){
+        if(personFirebaseAuth.loginUsuario(email, senha)){
+                _login.value = ValidationModel()
+            }else{
+            doLogin(email , senha)
+        }
+    }
+
+    private fun loginUsuario(email: String, password: String, auth:FirebaseAuth) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Authentication success.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Authentication failed: ${task.exception.toString()} ", Toast.LENGTH_SHORT).show()
+                    Log.d("loginTeste", task.exception.toString())
+                }
+            }
+    }
+
+     */
+
+
 
 }

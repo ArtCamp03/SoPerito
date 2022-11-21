@@ -3,12 +3,17 @@ package br.arc_camp_tcc.soperito.view.usuario
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityMenuConfigBinding
+import br.arc_camp_tcc.soperito.progressBar.DialogProgress
 import br.arc_camp_tcc.soperito.view.perito.PerfilPeritoActivity
 import br.arc_camp_tcc.soperito.viewModel.MenuConfigViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MenuConfigActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -42,14 +47,23 @@ class MenuConfigActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(Intent(this, ProfileChoiceActivity::class.java))
             finish()
         }else if(v.id == R.id.btn_sair_da_conta){
-            mViewModel.logout()
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+            userLogout()
         }
     }
 
     private fun observe(){
+        mViewModel.logOut.observe(this){
+            if(it.status()){
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }else{
+                Toast.makeText(applicationContext, it.message(), Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
+    private fun userLogout(){
+        mViewModel.logout()
     }
 
 }

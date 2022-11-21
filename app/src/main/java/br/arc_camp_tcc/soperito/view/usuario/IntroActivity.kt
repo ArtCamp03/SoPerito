@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.arc_camp_tcc.soperito.databinding.ActivityIntroBinding
 
-
 class IntroActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityIntroBinding

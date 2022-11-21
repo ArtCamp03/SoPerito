@@ -24,7 +24,6 @@ open class BaseRepository(val context: Context) {
         }
     }
 
-
     // chamada de listagem da API
     fun <T> executeCall(call: Call<T>, listener: APIListener<T>) {
         call.enqueue(object : Callback<T> {

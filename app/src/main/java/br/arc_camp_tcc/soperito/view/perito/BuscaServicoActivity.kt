@@ -64,7 +64,8 @@ class BuscaServicoActivity : AppCompatActivity(), View.OnClickListener {
     // quando voltar a açao on resume e chamado
     override fun onResume() {
         super.onResume()
-        viewModel.buscEmpregador(pesquisa)
+        //viewModel.buscEmpregador(pesquisa)
+        viewModel.buscEmpregadorFireB(pesquisa)
     }
 
     override fun onClick(v: View) {

@@ -8,7 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityMenuPeritoBinding
-import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
+import br.arc_camp_tcc.soperito.progressBar.DialogProgress
+import br.arc_camp_tcc.soperito.view.Controlador
 import br.arc_camp_tcc.soperito.view.usuario.MenuConfigActivity
 import br.arc_camp_tcc.soperito.viewModel.PeritoViewModel
 
@@ -16,6 +17,9 @@ class MenuPeritoActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityMenuPeritoBinding
     private lateinit var viewModel : PeritoViewModel
+
+    // gerencia entre API e firebase
+    private lateinit var controlaDados: Controlador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +36,10 @@ class MenuPeritoActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnAddCurriculo.setOnClickListener(this)
         binding.btnConfig.setOnClickListener(this)
 
-        loadPerito()
+        controlaDados = Controlador()
 
         observe()
+        loadPerito()
 
         supportActionBar?.hide()
     }
@@ -56,17 +61,27 @@ class MenuPeritoActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun observe(){
+        val dialogProgress = DialogProgress(this)
+        dialogProgress.startLoading()
+
       viewModel.loadPerito.observe(this) {
           if (it.status()) {
-              Toast.makeText(applicationContext, R.string.load_dados, Toast.LENGTH_LONG).show()
+              dialogProgress.isDismiss()
+              //Toast.makeText(applicationContext, R.string.load_dados, Toast.LENGTH_LONG).show()
           } else {
+              dialogProgress.isDismiss()
               Toast.makeText(applicationContext, it.message(), Toast.LENGTH_SHORT).show()
           }
       }
     }
 
     private fun loadPerito() {
-        viewModel.loadPerito()
+        if(controlaDados.firebase){
+            viewModel.loadPeritoFireb()
+        }else if(controlaDados.api) {
+            //viewModel.loadPerito()
+        }
+
     }
 
 }

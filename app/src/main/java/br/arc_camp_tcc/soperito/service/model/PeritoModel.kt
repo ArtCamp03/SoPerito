@@ -23,6 +23,22 @@ class PeritoModel{
     @ColumnInfo(name = "user_perito")
     var userPerito: Int = 0
 
+    @SerializedName("cod_curriculo")
+    @ColumnInfo(name = "cod_curriculo")
+    var codCurriculo: Int = 0
+
+    @SerializedName("exp")
+    @ColumnInfo(name = "exp")
+    var exp: String = ""
+
+    @SerializedName("espec")
+    @ColumnInfo(name = "espec")
+    var espec: String = ""
+
+// --------------------------       ###############      -----------------------------
+
+
+
     @SerializedName("nome_perito")
     @ColumnInfo(name = "nome_perito")
     var nome: String = ""
@@ -43,17 +59,8 @@ class PeritoModel{
     @ColumnInfo(name = "valor")
     var valor: String = ""
 
-    @SerializedName("exp")
-    @ColumnInfo(name = "exp")
-    var exp: String = ""
-
-    @SerializedName("espec")
-    @ColumnInfo(name = "espec")
-    var espec: String = ""
-
     @SerializedName("data_curriculo")
     @ColumnInfo(name = "data_curriculo")
     var dataCurriculo: String = ""
 
 }
-

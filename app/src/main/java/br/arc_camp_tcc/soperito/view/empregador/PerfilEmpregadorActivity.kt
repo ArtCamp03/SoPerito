@@ -8,12 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityPerfilEmpregadorBinding
-import br.arc_camp_tcc.soperito.viewModel.EmpregadorViewModel
+import br.arc_camp_tcc.soperito.view.Controlador
+import br.arc_camp_tcc.soperito.viewModel.PerfilEmpregadorViewModel
 
 class PerfilEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityPerfilEmpregadorBinding
-    private lateinit var viewModel : EmpregadorViewModel
+    private lateinit var viewModel : PerfilEmpregadorViewModel
+
+    private lateinit var controlaDados: Controlador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,14 +24,16 @@ class PerfilEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityPerfilEmpregadorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this).get(EmpregadorViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(PerfilEmpregadorViewModel::class.java)
 
         binding.btnFloatEditEmp.setOnClickListener(this)
         binding.btnOk.setOnClickListener(this)
 
-        loadPerfil()
+        // inicializa controle de dados
+        controlaDados = Controlador()
 
         observe()
+        loadPerfil()
 
         supportActionBar?.hide()
     }
@@ -55,10 +60,22 @@ class PerfilEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
             binding.textResultTelefone.setText(it)
         }
 
+        viewModel.loadPerfil.observe(this){
+            if(it.status()){
+                Toast.makeText(applicationContext,R.string.load_dados, Toast.LENGTH_LONG).show()
+            }else{
+                Toast.makeText(applicationContext, it.message(), Toast.LENGTH_LONG).show()
+            }
+        }
+
     }
 
     private fun loadPerfil(){
-        viewModel.loadPerfilEmp()
+        if(controlaDados.firebase){
+            viewModel.loadPerfilFireB()
+        }else if(controlaDados.api){
+            // viewModel.loadPerfilEmp()
+        }
     }
 
 }

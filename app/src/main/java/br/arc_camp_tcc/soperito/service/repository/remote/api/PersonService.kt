@@ -1,4 +1,4 @@
-package br.arc_camp_tcc.soperito.service.repository.remote
+package br.arc_camp_tcc.soperito.service.repository.remote.api
 
 import br.arc_camp_tcc.soperito.service.model.Person.PersonLoginModel
 import retrofit2.Call

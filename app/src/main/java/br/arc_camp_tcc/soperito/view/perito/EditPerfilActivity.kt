@@ -8,12 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityEditPerfilPeritoBinding
+import br.arc_camp_tcc.soperito.view.Controlador
 import br.arc_camp_tcc.soperito.viewModel.PerfilPeritoViewModel
 
 class EditPerfilActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityEditPerfilPeritoBinding
     private lateinit var viewModel : PerfilPeritoViewModel
+
+    private lateinit var controlaDados: Controlador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +30,9 @@ class EditPerfilActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnCancelar.setOnClickListener(this)
         binding.btnAddEsp.setOnClickListener(this)
         binding.btnAddXp.setOnClickListener(this)
+
+        // inicializa controle de dados
+        controlaDados = Controlador()
 
         observe()
 
@@ -50,19 +56,22 @@ class EditPerfilActivity : AppCompatActivity(), View.OnClickListener {
                 addPerfil("", "")
             }
         }
-
     }
 
     fun addPerfil(exp : String ,esp : String){
-        viewModel.setPerfil(exp,esp)
+        if(controlaDados.firebase){
+            viewModel.setPerfilFireB(exp,esp)
+        }else if(controlaDados.api){
+            viewModel.setPerfil(exp,esp)
+        }
     }
 
     private fun observe(){
         viewModel.setPerfil.observe(this){
             if(it.status()){
                 Toast.makeText(applicationContext,R.string.save, Toast.LENGTH_LONG).show()
-                startActivity(Intent(applicationContext, PerfilPeritoActivity::class.java))
                 finish()
+                startActivity(Intent(applicationContext, PerfilPeritoActivity::class.java))
             }else{
                 Toast.makeText(applicationContext, it.message(), Toast.LENGTH_LONG).show()
             }

@@ -5,55 +5,47 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
-import br.arc_camp_tcc.soperito.service.listeners.APIListener
 import br.arc_camp_tcc.soperito.service.model.EmpregadorModel
+import br.arc_camp_tcc.soperito.service.model.Firebase_model.EmpModel
 import br.arc_camp_tcc.soperito.service.model.UsuarioModel
 import br.arc_camp_tcc.soperito.service.model.ValidationModel
 import br.arc_camp_tcc.soperito.service.repository.EmrpegadorRepository
 import br.arc_camp_tcc.soperito.service.repository.SecurityPreferences
+import br.arc_camp_tcc.soperito.util.util.LerDados
+import com.google.firebase.firestore.FirebaseFirestore
 
-class EmpregadorViewModel(application: Application): AndroidViewModel(application)  {
+class EmpregadorViewModel(application: Application) : AndroidViewModel(application) {
 
-   // private val repository = bancoRepository(application.applicationContext)
+    // private val repository = bancoRepository(application.applicationContext)
     private val securityPreferences = SecurityPreferences(application.applicationContext)
-    private val emrpegadorRepository = EmrpegadorRepository (application.applicationContext)
+    private val emrpegadorRepository = EmrpegadorRepository(application.applicationContext)
 
-    // verifica se usuario ja possui conta Perito
-    private val getContUser = securityPreferences.get(DataBaseConstants.USER.COLUMNS.COD_USER).toInt()
-    private val getContEmp = securityPreferences.get(DataBaseConstants.USER.COLUMNS.COD_EMP).toInt()
-    private val getCodEmp = securityPreferences.get(DataBaseConstants.BUNDLE.COD_EMP).toInt()
-    private val getNomeEmp = securityPreferences.get(DataBaseConstants.USER.COLUMNS.NOME)
-    private val getTelefoneEmp = securityPreferences.get(DataBaseConstants.USER.COLUMNS.TELEFONE)
-    private val getEmailEmp = securityPreferences.get(DataBaseConstants.USER.COLUMNS.EMAIL)
+
+    // Firebase
+    private lateinit var bd: FirebaseFirestore
+    private var lerDados = LerDados(application)
+    private var empregador = EmpregadorModel()
+    private var usuario = UsuarioModel()
+
+
     private val userEmp = 1
 
     private val _criaEmp = MutableLiveData<ValidationModel>()
-    val criaEmp : LiveData<ValidationModel> = _criaEmp
+    val criaEmp: LiveData<ValidationModel> = _criaEmp
 
     private val _loadEmp = MutableLiveData<ValidationModel>()
-    val loadEmp : LiveData<ValidationModel> = _loadEmp
-
-    private val _editPerfil = MutableLiveData<ValidationModel>()
-    val editPerfil : LiveData<ValidationModel> = _editPerfil
-
-    private val _nomeEmp = MutableLiveData<String>()
-    val nomeEmp : LiveData<String> = _nomeEmp
-
-    private val _telefone = MutableLiveData<String>()
-    val telefone : LiveData<String> = _telefone
-
-    private val _email = MutableLiveData<String>()
-    val email : LiveData<String> = _email
+    val loadEmp: LiveData<ValidationModel> = _loadEmp
 
     private val _status = MutableLiveData<String>()
-    val status : LiveData<String> = _status
+    val status: LiveData<String> = _status
 
     private val _loadInfoSuccess = MutableLiveData<UsuarioModel>()
-    val loadInfoSuccess : LiveData<UsuarioModel> = _loadInfoSuccess
+    val loadInfoSuccess: LiveData<UsuarioModel> = _loadInfoSuccess
 
     private val _loadInfoFail = MutableLiveData<String>()
-    val loadInfoFail : LiveData<String> = _loadInfoFail
+    val loadInfoFail: LiveData<String> = _loadInfoFail
 
+/*
 
     fun criaEmrpegador(){
         emrpegadorRepository.criaEmpregador(getContUser, userEmp,getNomeEmp,getEmailEmp, getTelefoneEmp, object : APIListener<Boolean> {
@@ -80,28 +72,7 @@ class EmpregadorViewModel(application: Application): AndroidViewModel(applicatio
         })
     }
 
-    fun loadPerfilEmp(){
-        _nomeEmp.value = securityPreferences.get(DataBaseConstants.EMPREGADOR.COLUMNS.NOME)
-        _telefone.value = securityPreferences.get(DataBaseConstants.EMPREGADOR.COLUMNS.TELEFONE)
-        _email.value = securityPreferences.get(DataBaseConstants.EMPREGADOR.COLUMNS.EMAIL)
-    }
 
-    fun editPerfil(nome:String, telefone:String, email:String){
-        emrpegadorRepository.editPerfilEmp(getContEmp, nome, telefone,email, object : APIListener<Boolean> {
-            override fun onSuccess(result: Boolean) {
-                securityPreferences.store(DataBaseConstants.EMPREGADOR.COLUMNS.NOME, nome)
-                securityPreferences.store(DataBaseConstants.EMPREGADOR.COLUMNS.TELEFONE,telefone)
-                securityPreferences.store(DataBaseConstants.EMPREGADOR.COLUMNS.EMAIL,email)
-                _editPerfil.value = ValidationModel()
-            }
-
-            override fun onFailure(message: String) {
-                _editPerfil.value = ValidationModel(message)
-            }
-
-        })
-
-    }
 
     fun loadInfoVaga() {
         emrpegadorRepository.loadInfoVaga(getCodEmp, object : APIListener<UsuarioModel> {
@@ -113,6 +84,158 @@ class EmpregadorViewModel(application: Application): AndroidViewModel(applicatio
                 _loadInfoFail.value = message
             }
         })
+    }
+
+ */
+    // -----------------    FIREBASE   -------------------------------
+
+    fun contaEmpregadorFireb() {
+        bd = FirebaseFirestore.getInstance()
+
+        val reference = bd!!.collection("Empregadores")
+
+        val ident = (1..100).random()
+
+        empregador.codUser = lerDados.getContUser.toInt()
+        empregador.codEmp = ident
+        empregador.userEmp = userEmp
+        empregador.nome = lerDados.getNomeEmp.toString()
+        empregador.email = lerDados.getEmailEmp.toString()
+        empregador.telefone = lerDados.getTelefoneEmp.toString()
+
+        val emp = hashMapOf<String, Any>(
+            "codUser" to empregador.codUser.toInt(),
+            "codEmp" to empregador.codEmp.toInt(),
+            "userEmp" to empregador.userEmp.toInt(),
+            "codVaga" to empregador.codVaga.toInt(),
+            "nomeContact" to empregador.nome,
+            "emailContact" to empregador.email,
+            "telefoneContact" to empregador.telefone
+        )
+
+        reference.document("empregador").set(emp).addOnSuccessListener {
+            val query = bd!!.collection("Usuarios").whereEqualTo("cod_usuario", empregador.codUser)
+
+            query.addSnapshotListener { documento, erro ->
+                if (documento != null) {
+
+                    val editUser = hashMapOf<String, Any>(
+                        "user_emp" to empregador.userEmp,
+                        "cod_emp" to empregador.codEmp
+                    )
+
+                    bd!!.collection("Usuarios").document("usuario").update(editUser)
+                        .addOnSuccessListener { task ->
+                            if (task != null) {
+                                _criaEmp.value = ValidationModel()
+                            }
+                        }.addOnFailureListener { err ->
+                        _criaEmp.value = ValidationModel("Erro ao atualizar usuario : ${err}!!")
+                    }
+                    _criaEmp.value = ValidationModel()
+                } else if (erro != null) {
+                    _criaEmp.value = ValidationModel("Erro ao encontrar usuario !!")
+                }
+                _criaEmp.value = ValidationModel()
+            }
+            _criaEmp.value = ValidationModel()
+        }.addOnFailureListener { erro ->
+            _criaEmp.value = ValidationModel("Erro ao criar Empregador: ${erro} !!")
+        }
+
+    }
+
+    fun loadEmpregadorFireb() {
+
+        bd = FirebaseFirestore.getInstance()
+
+        val query = bd!!.collection("Empregadores").whereEqualTo("cod_usuario", usuario.cod_usuario)
+
+        query.get().addOnSuccessListener { documento ->
+            if (documento != null) {
+
+                for (documents in documento) {
+                    if (documents.id.equals("empregador")) {
+
+                        val empr = documents.toObject(EmpModel::class.java)
+
+                        securityPreferences.store(
+                            DataBaseConstants.EMPREGADOR.COLUMNS.COD_USER,
+                            empr.codigUsuario.toString()
+                        )
+                        securityPreferences.store(
+                            DataBaseConstants.EMPREGADOR.COLUMNS.COD_EMPREGADOR,
+                            empr.codEmp.toString()
+                        )
+                        securityPreferences.store(
+                            DataBaseConstants.EMPREGADOR.COLUMNS.USER_EMP,
+                            empr.userEmp.toString()
+                        )
+
+                        securityPreferences.store(
+                            DataBaseConstants.EMPREGADOR.COLUMNS.COD_VAGA,
+                            empr.codVaga.toString()
+                        )
+
+                        securityPreferences.store(
+                            DataBaseConstants.EMPREGADOR.COLUMNS.NOME,
+                            empr.nomeContact.toString()
+                        )
+
+                        securityPreferences.store(
+                            DataBaseConstants.EMPREGADOR.COLUMNS.EMAIL,
+                            empr.emailContact.toString()
+                        )
+
+                        securityPreferences.store(
+                            DataBaseConstants.EMPREGADOR.COLUMNS.TELEFONE,
+                            empr.telefoneContact.toString()
+                        )
+
+                        empregador.codUser = empr.codigUsuario!!
+                        empregador.codEmp = empr.codEmp!!
+                        empregador.userEmp = empr.userEmp!!
+                        empregador.codVaga = empr.codVaga!!
+                        empregador.nome = empr.nomeContact!!
+                        empregador.email = empr.emailContact!!
+                        empregador.telefone = empr.telefoneContact!!
+                    }
+                }
+                _loadEmp.value = ValidationModel()
+            } else {
+                _loadEmp.value = ValidationModel("Arquivo vazio ou inexistente !!")
+            }
+        }.addOnFailureListener {
+            _loadEmp.value = ValidationModel("Erro na comunicaçao com o servidor !!")
+        }
+    }
+
+    fun loadInfoVagaFireB() {
+        bd = FirebaseFirestore.getInstance()
+
+        //val dadosPerito : MutableList <PeritoModel> = ArrayList<PeritoModel>();
+
+        val reference = bd!!.collection("Usuarios")
+        val query = reference.whereEqualTo("cod_emp", lerDados.getContEmp.toInt())
+
+        query.get().addOnSuccessListener { documento ->
+            if (documento != null) {
+                //dadosPerito.clear()
+                for (docuemntos in documento) {
+                    if (docuemntos.id.equals("usuario")) {
+                        val infoEmp = docuemntos.toObject(UsuarioModel::class.java)
+                        //dadosPerito.add(infoPerito)
+                        _loadInfoSuccess.value = infoEmp
+                    } else {
+                        _loadInfoFail.value = "Usuario nao encontrado !!"
+                    }
+                }
+            } else {
+                _loadInfoFail.value = "Empregador inexistente !!"
+            }
+        }.addOnFailureListener {
+            _loadInfoFail.value = "Empregador nao encontrado !!"
+        }
     }
 
 }

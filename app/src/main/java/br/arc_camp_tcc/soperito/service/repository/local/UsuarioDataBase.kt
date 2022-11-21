@@ -8,13 +8,12 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import br.arc_camp_tcc.soperito.service.model.EmpregadorModel
 import br.arc_camp_tcc.soperito.service.model.PeritoModel
-import br.arc_camp_tcc.soperito.service.model.TransacaoModel
 import br.arc_camp_tcc.soperito.service.model.UsuarioModel
 
 // DATABASE Conexao com o banco
 
 @Database(
-    entities = [UsuarioModel::class, PeritoModel::class, EmpregadorModel::class, TransacaoModel::class],
+    entities = [UsuarioModel::class, PeritoModel::class, EmpregadorModel::class],
     version = 1
 )
 abstract class UsuarioDataBase : RoomDatabase() {

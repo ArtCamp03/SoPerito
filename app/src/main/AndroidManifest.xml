@@ -3,6 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="br.arc_camp_tcc.soperito">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <!-- APERMISSAO PARA LOCALIZAÇAO -->
+    <!-- Always include this permission -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Include only if your app benefits from precise location access. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,16 +26,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".InfoContratanteActivity"
+            android:name=".view.perito.InfoContratanteActivity"
             android:exported="false" />
         <activity
-            android:name=".InfoCandidatoActivity"
+            android:name=".view.empregador.InfoCandidatoActivity"
             android:exported="false" />
         <activity
-            android:name=".ShowContratanteActivity"
+            android:name=".view.perito.ShowContratanteActivity"
             android:exported="false" />
         <activity
-            android:name=".ShowCandidatoActivity"
+            android:name=".view.empregador.ShowCandidatoActivity"
             android:exported="false" />
         <activity
             android:name=".view.usuario.SegurancaConfigActivity"
@@ -120,9 +131,21 @@
             android:theme="@style/Theme.SoPerito.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="br.arc_camp_tcc.soperito"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider" />
+        </provider>
+
     </application>
 
 </manifest>

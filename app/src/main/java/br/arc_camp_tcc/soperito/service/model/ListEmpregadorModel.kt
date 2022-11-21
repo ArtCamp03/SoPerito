@@ -31,4 +31,6 @@ class ListEmpregadorModel {
     @SerializedName("v_data")
     var vData: String = ""
 
+    @SerializedName("local")
+    var local: String = ""
 }

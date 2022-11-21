@@ -8,18 +8,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.arc_camp_tcc.soperito.R
-import br.arc_camp_tcc.soperito.ShowCandidatoActivity
 import br.arc_camp_tcc.soperito.databinding.ActivityCandidatosEmpregadorBinding
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.PeritoListener
 import br.arc_camp_tcc.soperito.view.adapter.PeritoAdapter
 import br.arc_camp_tcc.soperito.view.perito.PerfilPeritoActivity
-import br.arc_camp_tcc.soperito.viewModel.ListPeritoViewModel
+import br.arc_camp_tcc.soperito.viewModel.CandidatosViewModel
 
 class CandidatosEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityCandidatosEmpregadorBinding
-    private lateinit var viewModel: ListPeritoViewModel
+    private lateinit var viewModel: CandidatosViewModel
 
     private val adapter = PeritoAdapter()
 
@@ -29,7 +28,7 @@ class CandidatosEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityCandidatosEmpregadorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this).get(ListPeritoViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(CandidatosViewModel::class.java)
 
         binding.imgActionBar.setOnClickListener(this)
 
@@ -61,8 +60,9 @@ class CandidatosEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
 
     // quando voltar a açao on resume e chamado
     override fun onResume() {
-        super.onResume()
-        viewModel.peritoCandidato()
+       super.onResume()
+       // viewModel.peritoCandidato()
+        viewModel.peritoCandidatoFireB()
     }
 
     override fun onClick(v: View) {

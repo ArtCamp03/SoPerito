@@ -1,4 +1,4 @@
-package br.arc_camp_tcc.soperito.service.repository.remote
+package br.arc_camp_tcc.soperito.service.repository.remote.api
 
 import br.arc_camp_tcc.soperito.service.model.PeritoModel
 import br.arc_camp_tcc.soperito.service.model.UsuarioModel
@@ -8,7 +8,7 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface PeritoService {
-    @POST("save_perito/save_perito.php")
+    @POST("perito/save_perito/save_perito.php")
     @FormUrlEncoded
     fun savePerito(
         @Field("cod_usuario") codigUsuario: Int,
@@ -16,7 +16,7 @@ interface PeritoService {
         @Field("nome_perito") nome: String
     ): Call<Boolean>
 
-    @POST("load_perito/load_perito.php")
+    @POST("perito/load_perito/load_perito.php")
     @FormUrlEncoded
     fun loadPerito(
         @Field("cod_usuario") codigUsuario: Int,
@@ -43,7 +43,6 @@ interface PeritoService {
         @Field("exp") exp: String?,
         @Field("espec") espec: String?
     ): Call<PeritoModel>
-
 
     @POST("empregador/candidatos/info_candidato/load_info.php")
     @FormUrlEncoded

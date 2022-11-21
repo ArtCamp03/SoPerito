@@ -8,12 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityPerfilPeritoBinding
+import br.arc_camp_tcc.soperito.view.Controlador
 import br.arc_camp_tcc.soperito.viewModel.PerfilPeritoViewModel
 
 class PerfilPeritoActivity: AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityPerfilPeritoBinding
     private lateinit var viewModel : PerfilPeritoViewModel
+    private lateinit var controlaDados: Controlador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +28,14 @@ class PerfilPeritoActivity: AppCompatActivity(), View.OnClickListener {
         binding.btnFloatEdit.setOnClickListener(this)
         binding.btnOk.setOnClickListener(this)
 
-        viewModel.loadPerfil()
+        // inicializa controle de dados
+        controlaDados = Controlador()
+
+        if(controlaDados.firebase){
+            viewModel.loadPerfilFireB()
+        }else if(controlaDados.api){
+            viewModel.loadPerfil()
+        }
 
         observe()
 

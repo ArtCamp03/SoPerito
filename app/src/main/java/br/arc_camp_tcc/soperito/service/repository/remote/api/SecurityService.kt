@@ -1,4 +1,4 @@
-package br.arc_camp_tcc.soperito.service.repository.remote
+package br.arc_camp_tcc.soperito.service.repository.remote.api
 
 import retrofit2.Call
 import retrofit2.http.Field

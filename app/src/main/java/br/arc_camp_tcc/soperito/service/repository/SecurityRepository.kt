@@ -4,8 +4,8 @@ import android.content.Context
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.APIListener
-import br.arc_camp_tcc.soperito.service.repository.remote.RetrofitClient
-import br.arc_camp_tcc.soperito.service.repository.remote.SecurityService
+import br.arc_camp_tcc.soperito.service.repository.remote.api.RetrofitClient
+import br.arc_camp_tcc.soperito.service.repository.remote.api.SecurityService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

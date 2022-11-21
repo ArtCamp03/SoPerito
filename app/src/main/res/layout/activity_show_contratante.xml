@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/marrom"
-    tools:context=".ShowContratanteActivity">
+    tools:context=".view.perito.ShowContratanteActivity">
 
     <ImageView
         android:id="@+id/img_action_bar"

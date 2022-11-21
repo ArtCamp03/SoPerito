@@ -8,17 +8,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.arc_camp_tcc.soperito.R
-import br.arc_camp_tcc.soperito.ShowContratanteActivity
 import br.arc_camp_tcc.soperito.databinding.ActivityContatoServicoBinding
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import br.arc_camp_tcc.soperito.service.listeners.EmpregadorListener
 import br.arc_camp_tcc.soperito.view.adapter.EmpregadorAdapter
-import br.arc_camp_tcc.soperito.viewModel.ListEmpregadorViewModel
+import br.arc_camp_tcc.soperito.viewModel.ContratadosViewModel
 
 class ContatoServicoActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityContatoServicoBinding
-    private lateinit var viewModel : ListEmpregadorViewModel
+    private lateinit var viewModel : ContratadosViewModel
 
     private val adapter = EmpregadorAdapter()
 
@@ -28,7 +27,7 @@ class ContatoServicoActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityContatoServicoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this).get(ListEmpregadorViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ContratadosViewModel::class.java)
 
         binding.imgActionBar.setOnClickListener(this)
 
@@ -61,7 +60,7 @@ class ContatoServicoActivity : AppCompatActivity(), View.OnClickListener {
     // quando voltar a açao on resume e chamado
     override fun onResume() {
         super.onResume()
-        viewModel.contatoServico()
+        viewModel.contatoServicoFireB()
     }
 
     override fun onClick(v: View) {

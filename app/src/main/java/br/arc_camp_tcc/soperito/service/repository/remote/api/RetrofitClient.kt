@@ -1,4 +1,4 @@
-package br.arc_camp_tcc.soperito.service.repository.remote
+package br.arc_camp_tcc.soperito.service.repository.remote.api
 
 import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
 import okhttp3.Interceptor
@@ -30,10 +30,10 @@ class RetrofitClient private constructor() {
                 }
             })
 
-            if(!::INSTANCE.isInitialized){
+            if(!Companion::INSTANCE.isInitialized){
                synchronized(RetrofitClient::class) {
                    INSTANCE = Retrofit.Builder()
-                       .baseUrl("http://localhost/so_perito/")
+                       .baseUrl("http://192.168.0.4/so_perito/")
                        .client(httpClient.build())
                        .addConverterFactory(GsonConverterFactory.create())
                        .build()

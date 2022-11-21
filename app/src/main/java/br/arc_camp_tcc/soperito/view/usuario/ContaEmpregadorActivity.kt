@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.arc_camp_tcc.soperito.R
 import br.arc_camp_tcc.soperito.databinding.ActivityContaEmpregadorBinding
-import br.arc_camp_tcc.soperito.service.constants.DataBaseConstants
+import br.arc_camp_tcc.soperito.view.Controlador
 import br.arc_camp_tcc.soperito.view.empregador.MenuEmpregadorActivity
 import br.arc_camp_tcc.soperito.viewModel.EmpregadorViewModel
 
@@ -16,6 +16,9 @@ class ContaEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding : ActivityContaEmpregadorBinding
     private lateinit var viewModel : EmpregadorViewModel
+
+    // gerencia entre API e firebase
+    private lateinit var controlaDados: Controlador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +30,8 @@ class ContaEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.btnConfirm.setOnClickListener(this)
         binding.btnCancel.setOnClickListener(this)
+
+        controlaDados = Controlador()
 
         observe()
 
@@ -56,7 +61,12 @@ class ContaEmpregadorActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun criaEmpregador(){
-        viewModel.criaEmrpegador()
+        if(controlaDados.firebase){
+            viewModel.contaEmpregadorFireb()
+        }else if(controlaDados.api){
+           // viewModel.criaEmrpegador()
+        }
+
     }
 
 }
